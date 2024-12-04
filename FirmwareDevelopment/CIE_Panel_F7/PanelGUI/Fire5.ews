@@ -1,0 +1,986 @@
+$version 1.0
+
+attr active = App::TreeView;
+attr callStackMonitor_Show = false;
+attr codeColSelect = false;
+attr codeFirstPos = <0,161>;
+attr codeInspector = App::TreeView.RefreshAll;
+attr codeSelEnd = <6,34>;
+attr codeSelStart = <0,34>;
+attr connectInspectors = false;
+attr debug_TrackUpdates = false;
+attr extractDoc_ClassOverview = true;
+attr extractDoc_Destination = ./HtmlDoc;
+attr extractDoc_IgnoreAccessors = true;
+attr extractDoc_IgnoreMembers = true;
+attr extractDoc_Profiles = false;
+attr extractDoc_Title = Documentation;
+attr extractDoc_Units = Application,Core,Graphics,Resources,Views;
+attr extractDoc_Variants = false;
+attr generateClut_ClutFile = .\Clut.txt;
+attr generateClut_ReservedColors = 0;
+attr generateClut_Strategy = Popularity;
+attr heapMonitor_Show = false;
+attr language = Default;
+attr profile = STM32F746;
+attr profilerMonitor_Show = false;
+attr search_CaseSensitive = false;
+attr search_History = Temperature,Faults,CMD_CHECK_FAULTS,CMD_CHECK,EVENT_PAGE,EVEN_PAGE,OnPress,PriorityDisplay,priorityscreen,accessmodechangeevent,EVENT_,Over Voltage,Panel PSU Over Voltage,RBUProgressEvent,Command1(,timechanged,disableitem,ZoneDisableItem,0xAAAA,0xBBBB,disabled,Recount,faults.onevent,Disabled,FaultListChangeEvent,EventListch,GotoFireDisplay,fire.Checked,inputchannel,_DATE_,get_date,CMD_GET_DATE,levelaccess,testchannelitem,Root,user level,skip output delay,skip delays,daytimerow,daytimespopup,daytimes,Monday,meshunit.bounds,meshvector.bounds,meshvector.frame,App::meshunit_outline_thin,mesh_outline_thin,mesh_outline,meshoutline,meshunititem,tree,meshtreee,testdeviceitem,TestChannel,ignore,ignore sec,ignore secu,SetDevice,setdevice,Text5.String,NumZones,Undefined,Reset,ActionReset,Confirm,"Confirm",PushButton3.Enabled,getcombiname,setupmenus,getitemcall,onset,CombiName,GetCombiName,SN.,CMD_GET_FAULT_ITEM,FAULT_NUM,SmallPushButton,App::SmallPushButton,testItem,FaultItem,allow intruder,allow secur,Visible,AppSupportPopup,gotofire,WidgetSet::RadioButtonMedium,Widgets,Widgets:,Widget:,App::NormalPushButton,SemiBold,adddevicePOpup,modify,Modify,add device,newbitmap,bitmap,hue,hue(,rssi,hsv,LogChoice,Show log,$prototyper,EVENT_RESOUND_BUTTON,lay200,RESOUND,ChannelType,pirbitmap,AlarmRowItem,GetPanelName,other events,LogoBitmap,"logo",adddevicepopup,OutputChannels,InputChannels,accesslevel,postsignal,SetConfig,intesttex,TestUnitItem,drop to ppu,App::Alert,getalertnum,CMD_GET_ALERT_DETAILS,SiteChangedEvent,UserButton,Bmp_2bar,SetListSize,mattskeyboard,AccesssPopup,logon required,notify,popup,site access key,site key,acumesh,CMD_GET_PANEL,EVENT_RESOUND,EVENT_SILENCE_BUTTON,ResoundAlarmsButton,cmd_drop,CMD_NETWORK,Action,CMD_NETWORK_RESET,EVENT_RESET_BUTTON,DropAllGo,ppu,"Reset System?,$if,App::DeviceConfig,GetDevInZone,TypeName,DFUPopup,PageDeselection,toggle ,toggle,testpage.ListViewer.,please take d,auto silence,auto_silence,CMD_GET_EXTR_RADIO_NUM,GetRadioFromPtr,timepicker,spinner,InsideTouchHandler1,Popup,PPU,Time,setlistsize,CMD_BUZZER,TimeDateText,phonenumber,password,.FAP,CMD_SET_MESH_STAGE,rssiprimary,snr,RadioUnit,snrprimary,Dead,UpdateDevicePopup,XFlat,testzoneitem,ImageCheckBox,DynamicAreaHead,FontL,GetConfigFromPtr,radiosetup,inputChannels,OutputChannel,GetConfig,modifypopup,sender =,sender,EN54,App::Devices.MeshListChangeEvent,dfupopup,SelectedTab,Fires,warp,warpimage,warpim,Warp,TypeBitmap,DisableFireAlarms,SiteSetting,DayTimesPopup,required,level required,Pin,site file,moreFaults,rand,NormalCheckBox,GetNumZoneAlerts,Core::Root,IOU.,heat,smoke,accessmodechange,FaultsTabButton.OnPress,faulttab,App::DisableItem,menu level,safestate,(App::Application),GetRoot, var App::Application app,TextPopup,WriteProtectedEvent,EwNewStringAnsi,GetRoot(,dummy,sitechanged,Routing Ack.,Routing Ack,NoOfItems,NoOfItems = numzones + numunits,CountOnTest,OnTest,ontest,StartRow,Restarting mesh,Restarting the mesh,"buzzzer","buzzer",PhoneNumber,App::PhoneNumber,NewNumberPopup,textpop,CMD_SET_SETTINGS,Volume,Volue,GetZoneFlags,device,ptr,Device*,DeviceConfig,NUM_DIS,listviewer,textpopup,LowLEvel,access level,Profile,ProfileName,OutputOverrideButton,Fire Alarm Output Devices,CMD_GET_RADIO_SETTINGS,RadioStatus,GetRadioNum,Chantype,FontS,.val[,Device,.val,TestChannelItem,AlertFlags,SwitchOutput,array,GetPanelZoneFlags,GetAlertnuminzone,DISABLE,"Silence,GetNamer,"Fire",LevelAccess,Switch_Medium,App::Switch_Medium,panel,apppanel,app_panel,"volume",IgnoreDelay,"Smoke,Options,local panel,FireContainer,MeshLogpopup,LogItem,App::LogItem,MeshLogPopup,Alert,GetAlertNum,IgnoreSecurityinday,"Daytime",First-aid,"Unknown",.Item,ScrotllOffset,Lib.Unit,Evacuute,Unit,"Unit,evacute,GetConfigNum,GetNumSiteDevices,Menu level,NCUStage,testpage.ListViewer,Smokebitmap,sounders relay,progresspopup,NumDevsInZone,GetMeshSize,"Smoke",MeshStatus,App::MeshStatus,WidgetSet::HorizontalValueBar,"Menu","Proceed",IgnoreSecurityAlways,AddDevicePopup,TabPullBackground,"Test",TabBackground,SelectionText,Background,HorizontalLEdValueBar,TriggerMeshListChangeEvent,IOU,Smoke,LogPopup,itemIndex,ProgressPopup,App::DFUPopup,onScroll,getting,SetZoneFlags,"Add Device",RadioUniy,Write protected,channeltype,"callpoint",WidgetSet::Switch_Medium,disableevent,CheckBoxLarge,LargeCheckBox,App::LargeCheckBox,Delays,FaultListchange,treeview,CMD_SET_CURRENT_DEVICE,meshtree,CMD_SETUP_RBU,App::Profile,DropDownMenu,AccessLevel,HorizontalValueBar_Medium,WidgetSet::HorizontalValueBar_Medium,DefaultAction,ProfileNAme,accessspopup,accesspopup,CMD_SET_DEVICE_ALL,write protect,NumZonesWithDevices,CMD_CATCH,buzzer,AccessModeChangeEvent,CMD_GET_NUM_ON_TEST,->panel,TimeChangeEvent,currentStage,ConfirmPopup,GetDevice,GetNumAlertsInZone,GetZoneAlert,GetAlertNumInZone,96,GotoFire,EVENT_RESET_SYSTEM,EVENT_SYSTEM_RESET,SiteLoadedEvent,DISABLED,ListViewer.Star,userindex,KeySwitchOn,float),site != NULL,app.site,PushButtonConfig,ChanText,ChannelText,KeypadPopup,App::Options,InputChannel,fault relay,.Dev,DisableRoutingExpanded,App::Device,App::DEvice,0x90800000,"Zone ,DeviceInfo,totalItems,MeshVector,Smoke",App::ChannelType.SounderVisualIndicatorCombined,App::ChannelType.PanelRoutingAck,DisableExpanded,::Expanded,Panel,SetZoneDisabledState,Mesh,[ Disabled,GetZoneDisabledState,Mon,text,sms,App::NormalRadioButton,Day,ChannelFlags,DisableChannelItem,App::AlarmRowItem,HeatA1RBitmap,GeneralOutputBitmap,GetRadio,App::RadioStatus.Additional,FireConfirmation,SiteNetBitmap,_BUTTON,FindConfigDevice,MeshInit,MUTE_BUZZER,AppFire_SetListSize,zonealert,CMD_GET_NUM_ALERTS_IN_ZONE,ActionBits,heatb,LEDPopup,SmallDropDownMenuList,ParamCode,ewnewstring,dummyconf,Paramslider,MeshListChangeEvent,DrawBranch,CMD_GET_NUM_FIRES,ZoneFlags,0x8000,MAX_COmBINATION_TYPE,MeshUnitItem,MeshUnit,MAX_CONBINATION_TYPE,DummyConfig,EwNewString(,location,Sounders Relay,Application::Action,Application::TestItem,SET_CURRENT,ModifyPopup,CMD_GET_DEVICE,& 1,EVENT_FIRE,GET_VERSION,EnsureVisible,Application::DropMenuItem,MenuSelectionText,setnumitems,Greencallpointbitmap,First aid,Beacon,stats,Command0( CMD_GET_NUM_DEVS_IN_ZONE, &cmd );,ApplicationTestItem item = EwCastObject( vlist->View, ApplicationTestItem );,inputSetting,rUnit,OUTPUTSET,INPUTSET,INPUTSETT,DEVCONFIG,output->delay_1 = delay1,output->delay_1 = delay1;,frate = d->flashRate;,DEVCONFIG* dev = (DEVCONFIG*) cmd.int0;,d->config->rZone,GetChildren,LAST_FIRE_DE,DelayChoice,LogOnButton.ButtonText,Application::LogFire,SET_INPUT_ON_TEST,channel = 16,SetInputChanSelected,SetOutputChanSelected,areOutputChansSelected,areInputChansSelected,areInputChanSelected,IsInputChanSelected,IsOutputChanSelected,Refresh,InputCheckBox;
+attr search_IgnoreDescription = true;
+attr search_IgnoreMosaic = true;
+attr search_LimitToComposer = false;
+attr search_WholeWords = false;
+attr search_WildCards = false;
+attr selectedProfiles = STM32F746;
+
+view Project
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.5;
+}
+
+view profile STM32F746
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <157,-7>;
+  attr zoom = 1.0;
+}
+
+view unit WidgetSet
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,617>;
+  attr zoom = 1.5;
+}
+
+view unit Flat
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view unit Core
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,185>;
+  attr zoom = 1.0;
+}
+
+view unit Views
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view unit XFlat
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view unit Resources
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view unit App
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,281>;
+  attr zoom = 1.0;
+}
+
+view unit Templates
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::Settings
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <104,3>;
+  attr codeSelStart = <104,3>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,185>;
+  attr zoom = 1.0;
+}
+
+view class App::KeypadPopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <8,5>;
+  attr codeSelStart = <8,5>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.25;
+}
+
+view class App::KeypadChangePopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,10>;
+  attr codeSelEnd = <24,35>;
+  attr codeSelStart = <24,35>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 0.75;
+}
+
+view class App::TextPopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <57,13>;
+  attr codeSelStart = <57,13>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::AccesssPopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = Show;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::TreeView
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,150>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <94,163>;
+  attr codeSelStart = <94,163>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 0.75;
+}
+
+view class App::ChannelImage
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <15,1>;
+  attr codeSelStart = <15,1>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::DayTimesPopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,31>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,281>;
+  attr zoom = 1.0;
+}
+
+view class App::ModifyPopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <23,2>;
+  attr codeSelStart = <9,2>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::TestUnitItem
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <0,5>;
+  attr codeSelStart = <0,10>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,89>;
+  attr zoom = 2.0;
+}
+
+view class App::TestItem
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <13,6>;
+  attr codeSelStart = <13,6>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,425>;
+  attr zoom = 1.0;
+}
+
+view class App::LibClass
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = NumZonesWithDevices;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::UpdateDevicePopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,89>;
+  attr zoom = 1.0;
+}
+
+view class App::Popup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = Hide;
+  attr codeSelEnd = <18,4>;
+  attr codeSelStart = <18,4>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::Test
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::OutputChannels
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,25>;
+  attr codeSelEnd = <80,36>;
+  attr codeSelStart = <80,36>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.5;
+}
+
+view class App::OutputSignal
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = UpdateViewState;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::Modify
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = AddDevices;
+  attr codeSelEnd = <3,11>;
+  attr codeSelStart = <0,6>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::AddDevicePopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = onEvent1;
+  attr codeSelEnd = <80,0>;
+  attr codeSelStart = <80,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 0.75;
+}
+
+view class App::Fire
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = onEvent;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::SystemPage
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,69>;
+  attr codeInspector = UpdateViewState;
+  attr codeSelEnd = <97,182>;
+  attr codeSelStart = <88,182>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::Application
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = onGotoScreenEvent;
+  attr codeSelEnd = <73,6>;
+  attr codeSelStart = <73,6>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 0.75;
+}
+
+view class App::AlarmRowItem
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.75;
+}
+
+view class App::DelayUnitItem
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::LogChoice
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = MainSlot;
+  attr codeSelEnd = <0,2>;
+  attr codeSelStart = <0,5>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::MeshUnit
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,59>;
+  attr codeInspector = UpdateViewState;
+  attr codeSelEnd = <63,7>;
+  attr codeSelStart = <63,7>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 2.0;
+}
+
+view class App::Device
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::DeviceClass
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = TriggerFaultListChangeEvent;
+  attr codeSelEnd = <23,2>;
+  attr codeSelStart = <9,2>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,1577>;
+  attr zoom = 1.0;
+}
+
+view class App::AdditionalPopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::TabButton
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::AdditionalUnit
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = ToggleSlot;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::TabButtonPull
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = MenuChoice;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::MenuItem
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::AppSupportPopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,18>;
+  attr codeInspector = SetFocus;
+  attr codeSelEnd = <22,23>;
+  attr codeSelStart = <22,23>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,185>;
+  attr zoom = 1.0;
+}
+
+view class App::Disablements
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,152>;
+  attr codeInspector = OnLoadItem1;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::Delays
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,96>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,89>;
+  attr zoom = 1.0;
+}
+
+view class App::MeshTree
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,114>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <90,113>;
+  attr codeSelStart = <90,113>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 0.75;
+}
+
+view class App::LevelAccess
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,46>;
+  attr codeInspector = OnSetAccessLevel;
+  attr codeSelEnd = <59,56>;
+  attr codeSelStart = <59,56>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,89>;
+  attr zoom = 1.0;
+}
+
+view class App::TestZoneItem
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = ToggleSlot;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::OnTest
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <44,46>;
+  attr codeSelStart = <16,46>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::FaultItem
+{
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::SmallDropDownMenuList
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::DropMenuItem
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::MeshUnitItem
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = UpdateViewState;
+  attr codeSelEnd = <35,19>;
+  attr codeSelStart = <35,19>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,89>;
+  attr zoom = 2.5;
+}
+
+view class App::MeshVector
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = UpdateViewState;
+  attr codeSelEnd = <48,6>;
+  attr codeSelStart = <48,6>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 4.0;
+}
+
+view class App::DayTimeRow
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = EndChanged;
+  attr codeSelEnd = <58,3>;
+  attr codeSelStart = <58,3>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 0.75;
+}
+
+view class App::TimePicker1
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = SetHour;
+  attr codeSelEnd = <46,10>;
+  attr codeSelStart = <46,10>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::InputDelay
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Views::Text
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::Faults
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,43>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 5;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::TestChannelItem
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = ToggleChannel;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::ListViewer
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = LoadItem;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::SetTimePopup
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = GetCurrent;
+  attr codeSelEnd = <14,15>;
+  attr codeSelStart = <14,15>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::DatePicker
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::DeviceConfig
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::InputChannels
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::Events
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,15>;
+  attr codeInspector = onEvent;
+  attr codeSelEnd = <33,31>;
+  attr codeSelStart = <33,31>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::Disable
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,63>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,89>;
+  attr zoom = 1.0;
+}
+
+view class App::DisableItem
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::DisableUnitItem
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,5>;
+  attr codeInspector = ToggleSlot;
+  attr codeSelEnd = <64,14>;
+  attr codeSelStart = <64,14>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::DisableZoneItem
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = ToggleSlot;
+  attr codeSelEnd = <29,14>;
+  attr codeSelStart = <29,14>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::DisableChannelItem
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,0>;
+  attr codeInspector = ToggleOutputChannel;
+  attr codeSelEnd = <112,23>;
+  attr codeSelStart = <112,23>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::FaultListChange
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class App::MeshLogPopup2
+{
+  attr codeColSelect = false;
+  attr codeFirstPos = <0,36>;
+  attr codeInspector = OnLoadItem;
+  attr codeSelEnd = <0,0>;
+  attr codeSelStart = <0,0>;
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Views::Rectangle
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Views::Line
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Templates::Menu
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Templates::Panel
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,569>;
+  attr zoom = 1.0;
+}
+
+view class Templates::HorizontalValueBar
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Templates::VerticalValueBar
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Templates::VerticalScrollbar
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,7678>;
+  attr zoom = 1.0;
+}
+
+view class Templates::MenuItem
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Templates::DeviceClass
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Core::SystemEventTask
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view class Core::SystemEventHandler
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view enum App::Action
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view set App::DeviceSetting
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+view set Core::Layout
+{
+  attr enableGrid = true;
+  attr grid = 10;
+  attr scrollTo = <-7,-7>;
+  attr zoom = 1.0;
+}
+
+breakpoints
+{
+  App::DelKey.OnSetPressed 5;
+  App::DropDownMenu.Select 3;
+  App::GSMPopup.Show 1;
+  App::KeypadPopup.Proceeed 48;
+  App::LEDPopup.Stop 3;
+  App::LogPopup.OnLoadItem 38;
+  App::MeshLogPopup.ScrollRefresh 28;
+  App::RadioSetup.Select 1;
+  App::SystemPage.DoRestore 4;
+  App::TestUnitItem.ToggleExpand 7;
+}

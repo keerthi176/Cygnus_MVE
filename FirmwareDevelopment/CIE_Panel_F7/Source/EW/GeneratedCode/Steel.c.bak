@@ -1,0 +1,455 @@
+/*******************************************************************************
+*
+* E M B E D D E D   W I Z A R D   P R O J E C T
+*
+*                                                Copyright (c) TARA Systems GmbH
+*                                    written by Paul Banach and Manfred Schweyer
+*
+********************************************************************************
+*
+* This file was generated automatically by Embedded Wizard Studio.
+*
+* Please do not make any modifications of this file! The modifications are lost
+* when the file is generated again by Embedded Wizard Studio!
+*
+* The template of this heading text can be found in the file 'head.ewt' in the
+* directory 'Platforms' of your Embedded Wizard installation directory. If you
+* wish to adapt this text, please copy the template file 'head.ewt' into your
+* project directory and edit the copy only. Please avoid any modifications of
+* the original template file!
+*
+* Version  : 9.00
+* Profile  : STM32F746
+* Platform : STM.STM32.RGB565
+*
+*******************************************************************************/
+
+#include "ewlocale.h"
+#include "_CoreView.h"
+#include "_ResourcesBitmap.h"
+#include "_SteelHorzBar.h"
+#include "_ViewsFrame.h"
+#include "_ViewsWallpaper.h"
+#include "Core.h"
+#include "Graphics.h"
+#include "Steel.h"
+
+/* Constant values used in this 'C' module only. */
+static const XRect _Const0000 = {{ 0, 0 }, { 150, 44 }};
+static const XRect _Const0001 = {{ 10, 10 }, { 140, 34 }};
+
+/* Initializer for the class 'Steel::HorzBar' */
+void SteelHorzBar__Init( SteelHorzBar _this, XObject aLink, XHandle aArg )
+{
+  /* At first initialize the super class ... */
+  CoreGroup__Init( &_this->_Super, aLink, aArg );
+
+  /* ... then construct all embedded objects */
+  ViewsFrame__Init( &_this->Frame, &_this->_XObject, 0 );
+  ViewsWallpaper__Init( &_this->Back, &_this->_XObject, 0 );
+  ViewsWallpaper__Init( &_this->Front, &_this->_XObject, 0 );
+
+  /* Setup the VMT pointer */
+  _this->_VMT = EW_CLASS( SteelHorzBar );
+
+  /* ... and initialize objects, variables, properties, etc. */
+  CoreRectView__OnSetBounds( _this, _Const0000 );
+  CoreGroup_OnSetEnabled((CoreGroup)_this, 0 );
+  _this->Type = SteelLedTypeRed;
+  CoreView_OnSetLayout((CoreView)&_this->Frame, CoreLayoutAlignToLeft | CoreLayoutAlignToRight 
+  | CoreLayoutResizeHorz );
+  CoreRectView__OnSetBounds( &_this->Frame, _Const0000 );
+  ViewsFrame_OnSetEdges( &_this->Frame, GraphicsEdgesBottom | GraphicsEdgesLeft 
+  | GraphicsEdgesRight | GraphicsEdgesTop );
+  CoreView_OnSetLayout((CoreView)&_this->Back, CoreLayoutAlignToLeft | CoreLayoutAlignToRight 
+  | CoreLayoutResizeHorz );
+  CoreRectView__OnSetBounds( &_this->Back, _Const0001 );
+  CoreView_OnSetLayout((CoreView)&_this->Front, CoreLayoutAlignToLeft | CoreLayoutAlignToRight 
+  | CoreLayoutResizeHorz );
+  CoreRectView__OnSetBounds( &_this->Front, _Const0001 );
+  ViewsWallpaper_OnSetFrameNumber( &_this->Front, 1 );
+  _this->MaxValue = 100;
+  _this->CurrentValue = 50;
+  CoreGroup__Add( _this, ((CoreView)&_this->Frame ), 0 );
+  CoreGroup__Add( _this, ((CoreView)&_this->Back ), 0 );
+  CoreGroup__Add( _this, ((CoreView)&_this->Front ), 0 );
+  ViewsFrame_OnSetBitmap( &_this->Frame, EwLoadResource( &SteelBarFrame, ResourcesBitmap 
+  ));
+  ViewsWallpaper_OnSetBitmap( &_this->Back, EwLoadResource( &SteelHorzBarRed, ResourcesBitmap 
+  ));
+  ViewsWallpaper_OnSetBitmap( &_this->Front, EwLoadResource( &SteelHorzBarRed, ResourcesBitmap 
+  ));
+}
+
+/* Re-Initializer for the class 'Steel::HorzBar' */
+void SteelHorzBar__ReInit( SteelHorzBar _this )
+{
+  /* At first re-initialize the super class ... */
+  CoreGroup__ReInit( &_this->_Super );
+
+  /* ... then re-construct all embedded objects */
+  ViewsFrame__ReInit( &_this->Frame );
+  ViewsWallpaper__ReInit( &_this->Back );
+  ViewsWallpaper__ReInit( &_this->Front );
+}
+
+/* Finalizer method for the class 'Steel::HorzBar' */
+void SteelHorzBar__Done( SteelHorzBar _this )
+{
+  /* Finalize this class */
+  _this->_VMT = EW_CLASS( SteelHorzBar );
+
+  /* Finalize all embedded objects */
+  ViewsFrame__Done( &_this->Frame );
+  ViewsWallpaper__Done( &_this->Back );
+  ViewsWallpaper__Done( &_this->Front );
+
+  /* Don't forget to deinitialize the super class ... */
+  CoreGroup__Done( &_this->_Super );
+}
+
+/* Garbage Collector method for the class 'Steel::HorzBar' */
+void SteelHorzBar__Mark( SteelHorzBar _this )
+{
+  EwMarkObject( &_this->Frame );
+  EwMarkObject( &_this->Back );
+  EwMarkObject( &_this->Front );
+
+  /* Give the super class a chance to mark its objects and references */
+  CoreGroup__Mark( &_this->_Super );
+}
+
+/* The method UpdateViewState() is invoked automatically after the state of the 
+   component has been changed. This method can be overridden and filled with logic 
+   to ensure the visual aspect of the component does reflect its current state. 
+   For example, the 'enabled' state of the component can affect its colors (disabled 
+   components may appear pale). In this case the logic of the method should modify 
+   the respective color properties accordingly to the current 'enabled' state. 
+   The current state of the component is passed as a set in the parameter aState. 
+   It reflects the very basic component state like its visibility or the ability 
+   to react to user inputs. Beside this common state, the method can also involve 
+   any other variables used in the component as long as they reflect its current 
+   state. For example, the toggle switch component can take in account its toggle 
+   state 'on' or 'off' and change accordingly the location of the slider, etc.
+   Usually, this method will be invoked automatically by the framework. Optionally 
+   you can request its invocation by using the method @InvalidateViewState(). */
+void SteelHorzBar_UpdateViewState( SteelHorzBar _this, XSet aState )
+{
+  XInt32 width;
+
+  /* Dummy expressions to avoid the 'C' warning 'unused argument'. */
+  EW_UNUSED_ARG( aState );
+
+  width = 0;
+
+  if ((( _this->MaxValue > _this->MinValue ) && ( _this->CurrentValue >= _this->MinValue 
+      )) && ( _this->CurrentValue <= _this->MaxValue ))
+  {
+    width = ( EwGetRectW( _this->Back.Super1.Bounds ) * ( _this->CurrentValue - 
+    _this->MinValue )) / ( _this->MaxValue - _this->MinValue );
+    width = (( width + 5 ) / 10 ) * 10;
+  }
+
+  CoreRectView__OnSetBounds( &_this->Front, _this->Back.Super1.Bounds );
+  CoreRectView__OnSetBounds( &_this->Front, EwSetRectW( _this->Front.Super1.Bounds, 
+  width ));
+}
+
+/* 'C' function for method : 'Steel::HorzBar.OnSetType()' */
+void SteelHorzBar_OnSetType( SteelHorzBar _this, XEnum value )
+{
+  if ( _this->Type == value )
+    return;
+
+  _this->Type = value;
+
+  switch ( value )
+  {
+    case SteelLedTypeRed :
+    {
+      ViewsWallpaper_OnSetBitmap( &_this->Front, EwLoadResource( &SteelHorzBarRed, 
+      ResourcesBitmap ));
+      ViewsWallpaper_OnSetBitmap( &_this->Back, EwLoadResource( &SteelHorzBarRed, 
+      ResourcesBitmap ));
+    }
+    break;
+
+    case SteelLedTypeGreen :
+    {
+      ViewsWallpaper_OnSetBitmap( &_this->Front, EwLoadResource( &SteelHorzBarGreen, 
+      ResourcesBitmap ));
+      ViewsWallpaper_OnSetBitmap( &_this->Back, EwLoadResource( &SteelHorzBarGreen, 
+      ResourcesBitmap ));
+    }
+    break;
+
+    case SteelLedTypeYellow :
+    {
+      ViewsWallpaper_OnSetBitmap( &_this->Front, EwLoadResource( &SteelHorzBarYellow, 
+      ResourcesBitmap ));
+      ViewsWallpaper_OnSetBitmap( &_this->Back, EwLoadResource( &SteelHorzBarYellow, 
+      ResourcesBitmap ));
+    }
+    break;
+
+    case SteelLedTypeBlue :
+    {
+      ViewsWallpaper_OnSetBitmap( &_this->Front, EwLoadResource( &SteelHorzBarBlue, 
+      ResourcesBitmap ));
+      ViewsWallpaper_OnSetBitmap( &_this->Back, EwLoadResource( &SteelHorzBarBlue, 
+      ResourcesBitmap ));
+    }
+    break;
+
+    default : 
+      ;
+  }
+}
+
+/* 'C' function for method : 'Steel::HorzBar.OnSetCurrentValue()' */
+void SteelHorzBar_OnSetCurrentValue( SteelHorzBar _this, XInt32 value )
+{
+  if ( value < _this->MinValue )
+    value = _this->MinValue;
+
+  if ( value > _this->MaxValue )
+    value = _this->MaxValue;
+
+  if ( _this->CurrentValue == value )
+    return;
+
+  _this->CurrentValue = value;
+  CoreGroup_InvalidateViewState((CoreGroup)_this );
+}
+
+/* Variants derived from the class : 'Steel::HorzBar' */
+EW_DEFINE_CLASS_VARIANTS( SteelHorzBar )
+EW_END_OF_CLASS_VARIANTS( SteelHorzBar )
+
+/* Virtual Method Table (VMT) for the class : 'Steel::HorzBar' */
+EW_DEFINE_CLASS( SteelHorzBar, CoreGroup, "Steel::HorzBar" )
+  CoreRectView_initLayoutContext,
+  CoreView_GetRoot,
+  CoreGroup_Draw,
+  CoreView_HandleEvent,
+  CoreGroup_CursorHitTest,
+  CoreRectView_ArrangeView,
+  CoreRectView_MoveView,
+  CoreRectView_GetExtent,
+  CoreGroup_ChangeViewState,
+  CoreGroup_OnSetBounds,
+  CoreGroup_OnSetFocus,
+  CoreGroup_OnSetBuffered,
+  CoreGroup_OnSetOpacity,
+  CoreGroup_DispatchEvent,
+  CoreGroup_BroadcastEvent,
+  CoreGroup_UpdateLayout,
+  SteelHorzBar_UpdateViewState,
+  CoreGroup_InvalidateArea,
+  CoreGroup_FindSiblingView,
+  CoreGroup_RestackBehind,
+  CoreGroup_RestackTop,
+  CoreGroup_Restack,
+  CoreGroup_Remove,
+  CoreGroup_Add,
+EW_END_OF_CLASS( SteelHorzBar )
+
+/* Bitmap resource : 'Steel::BarFrame' */
+EW_DEFINE_BITMAP_RES( SteelBarFrame )
+  EW_BITMAP_FRAMES( SteelBarFrame, Default, EW_DRIVER_VARIANT_RGBA8888, 30, 30, 0 )
+    EW_BITMAP_FRAME( 8, 8, 14, 14, 0x00000000, 0x00000000 )
+
+  EW_BITMAP_PIXEL_R180( SteelBarFrame, Default )                /* ratio 18.00 % */
+    0x0409FF00, 0xC11FF020, 0x1A0F0581, 0xA110C84C, 0x150F85C3, 0xB1086C4A, 0x1488C4E2,
+    0xC8CC5A2F, 0x8DC7A311, 0xEC8A351F, 0xC8E4B208, 0x9A4F2490, 0xA512C94C, 0x552F95CB,
+    0xB3096CCA, 0x3498CCE6, 0xC9CCDA6F, 0x9DCFA713, 0xED0A753F, 0xD0E8B409, 0x1A8F44A0,
+    0x20A018A5, 0x0A54828A, 0x86C829A6, 0x558155AA, 0x97FD5EB1, 0x33D6EB95, 0x2C14A505,
+    0xC1415051, 0x96D348A6, 0x5EEF6144, 0x62A4333F, 0x480623A1, 0x727937D2, 0x07FB6D0C,
+    0xBEDED087, 0x15F2FD7F, 0xE070780C, 0x0CDCFFC3, 0x0D6FF6D2, 0xB6F06D20, 0x4A66A9CC,
+    0x1777B2D8, 0xCA48220A, 0x489263F9, 0x02E5C6A0, 0xBFDAE773, 0xFD924915, 0xD8430073,
+    0x802A03BF, 0x5B3D8EBD, 0xB4DB6C36, 0x8DDED76F, 0x09EC8560, 0xC3FD8634, 0x3FD88380,
+    0x4D3E2303, 0x40BCC002, 0x891FA5E7, 0x0D335948, 0xAA238A5E, 0xCDCF6B75, 0xDDF7B71D,
+    0x6EEBBFDB, 0xBFD822F0, 0xC10A1D02, 0xC6E00E63, 0x711AA573, 0xECE2D0F8, 0xE1F3791F,
+    0x2FD777C1, 0xDEFE7F7E, 0x01B015B2, 0x8731061F, 0x0A087BC5, 0x570F0364, 0x83DFC334,
+    0xDFE845F9, 0xB011DF84, 0x02051E41, 0xD08245E0, 0x8360B455, 0x62185210, 0x683E247F,
+    0x6DEC8621, 0x147C16A8, 0x84A0E87D, 0xE238C225, 0xA866278C, 0x3E2C8762, 0x328CE2E4,
+    0x7E6228F6, 0x61C8A635, 0xE8ECFF8E, 0x263F8C63, 0x3685E159, 0x919CF90E, 0xA518F24A,
+    0x7732418C, 0x42449123, 0x5296E489, 0x86A55972, 0x65A5AA4E, 0xB91E6497, 0x865797DB,
+    0x380C5459, 0x6CCCC150, 0xE53994BF, 0xF2EC2994, 0xDC1A010F, 0x1C8AE4D1, 0x1202A06E,
+    0x4073B4C9, 0xC9C8BA0A, 0x900699A5, 0x169DCA30, 0x7B0F3198, 0x1429A861, 0x501C0A7B,
+    0x208F2A82, 0x276BCA27, 0x2F9B32D0, 0xE848F286, 0x72802371, 0xFC6A05E7, 0x3A034023,
+    0x15DEC324, 0xDEC4E692, 0x60140102, 0x50030B41, 0x032C45A0, 0x3C85504C, 0xC5304803,
+    0x4146C13F, 0x16C604AC, 0xC8B26C7B, 0xB2ACEB2E, 0x04E04403, 0x510C0FB1, 0xB40A008F,
+    0xB5000D10, 0x0A5EC1EA, 0x5EC4C6B1, 0xC035EC00, 0xB1EC0C5E, 0xEC231EC1, 0xBBEED251,
+    0x2F1BB9CC, 0x5BC800BC, 0xB0917B2F, 0x607B0857, 0xB86E3B7C, 0xA58C0238, 0x69F304C0,
+    0x0F07C070, 0x08C1709C, 0xC3B0AC37, 0x712C3F0C, 0x6C2F14C4, 0x0503C431, 0x00000004,
+    0x00000000
+
+  EW_BITMAPS_TABLE( SteelBarFrame )
+    EW_BITMAP( SteelBarFrame, Default )
+EW_END_OF_BITMAP_RES( SteelBarFrame )
+
+/* Table with links to derived variants of the bitmap resource : 'Steel::BarFrame' */
+EW_RES_WITHOUT_VARIANTS( SteelBarFrame )
+
+/* Bitmap resource : 'Steel::HorzBarRed' */
+EW_DEFINE_BITMAP_RES( SteelHorzBarRed )
+  EW_BITMAP_FRAMES( SteelHorzBarRed, Default, EW_DRIVER_VARIANT_RGBA8888, 10, 24, 0 )
+    EW_BITMAP_FRAME( 0, 1, 10, 22, 0x00000000, 0x00000000 ),
+    EW_BITMAP_FRAME( 0, 1, 10, 22, 0x0000015C, 0x00000000 )
+
+  EW_BITMAP_PIXEL_R180( SteelHorzBarRed, Default )              /* ratio 36.04 % */
+    0x28142100, 0x81604B70, 0x0E11067F, 0xA1307854, 0x0E1785C3, 0xC2B7F81C, 0x145B8381,
+    0x17F8180C, 0x7F82C162, 0x73FE2C2C, 0xC8C1E0F1, 0x924D2792, 0x86D28954, 0x8AFF0904,
+    0xAFF0D86C, 0xFF048243, 0xF0884468, 0x0A85480F, 0x0CFC82FF, 0x5028543A, 0x628144A3,
+    0x9FE31189, 0xFE47239A, 0xE0A05079, 0x499D8D5F, 0x5ADD22B3, 0x1A16A874, 0x69B9FE34,
+    0x552A44D2, 0x1EB958AB, 0xEDB6BAED, 0xC761AFBF, 0xF55A9D96, 0x5AB54F2A, 0x2B8566D9,
+    0xBAD9AC96, 0xC5E2F569, 0x5FEE57CB, 0x2B0577B4, 0x2FD85B76, 0xDD79C45D, 0xB60AF60E,
+    0x76B3DCEF, 0x5C266B23, 0xCCE3F0D9, 0x6DEB2593, 0x6270197C, 0x76F7A8D1, 0x70398C76,
+    0x576FD0EA, 0x1B0C8697, 0xA0C3E936, 0x1CA66F17, 0xDDE9B597, 0xC65B79AF, 0xE6B81AED,
+    0xD78B9FDB, 0xF89B2D1E, 0x7B9CE369, 0x3C1DCECF, 0xCFD6F235, 0xFE6E3397, 0xAC0DACE1,
+    0x80582C42, 0x85C8543E, 0xE8BEFF0B, 0x8E4FF1D0, 0x5AFF2914, 0xC2627488, 0x5038BFC4,
+    0xBFCFDCA0, 0xFF7E3F5F, 0x0541D1FC, 0x022CFF15, 0x3CFF1C07, 0xFF1D4752, 0x0882212C,
+    0x46D224BD, 0xD28CFF1B, 0x94FF2348, 0x19240902, 0x8721D86E, 0x8A68721A, 0x23FC9224,
+    0xFCA0280B, 0x9F27CB13, 0x001012F4, 0x30187900, 0x81A04B70, 0x0E11067F, 0xA1307854,
+    0x105385C3, 0xE9F7F820, 0x495B83C1, 0xB7F81C0E, 0x7F82C167, 0x4BFE2CA3, 0xC8C20105,
+    0x924D2792, 0x244A8934, 0xFE120932, 0xE1B0DBBD, 0x0A051A9F, 0xF982F9FE, 0x0B059D8F,
+    0x05067F32, 0x51684EFA, 0xC684EEA0, 0x9FE32193, 0xFE48243C, 0x8FF9C1BD, 0x43A3CF18,
+    0xAADD62B3, 0x7F8D46B4, 0x91389CF3, 0x4C6AD54A, 0xAA8D44AE, 0x9E340B4D, 0xC962B057,
+    0x75AB34E6, 0xFFB65D6D, 0x3B0D7EDC, 0xABDCEA76, 0xCDDED176, 0xDCAF96FB, 0x0AF180AA,
+    0x6E17AC16, 0x0789B2DF, 0x37BAEE2F, 0x67C45FAE, 0xDBC66B03, 0xBA65F0D8, 0xEDDB1593,
+    0x6672196C, 0x92B3A8D1, 0xB4F7FC7E, 0x2B84CDE4, 0x3AFCC6B3, 0x87D5D635, 0x1D0EC341,
+    0xC8EE71DB, 0x2E1719BC, 0x71B6BADD, 0xEF819FDC, 0xB67C3D1E, 0x91B0DB6E, 0x5BCE369B,
+    0xD1E0F17A, 0xE39BFF9B, 0xABB1DFF1, 0x37502E17, 0xD383018A, 0x4AC03B1D, 0x94AFF291,
+    0x4C267848, 0x65028580, 0xF479FD7E, 0x579FEBED, 0x7ABFCAA5, 0x8FF1C070, 0xF1D8763D,
+    0x8C233C0F, 0x6E3D4BD0, 0x3DCFF1B8, 0x20F2388E, 0x584C9024, 0x5A143DE1, 0x923E0FF8,
+    0x3E4FF248, 0xE1B284A1, 0x12F49F27, 0x00000010, 0x00000000
+
+  EW_BITMAPS_TABLE( SteelHorzBarRed )
+    EW_BITMAP( SteelHorzBarRed, Default )
+EW_END_OF_BITMAP_RES( SteelHorzBarRed )
+
+/* Table with links to derived variants of the bitmap resource : 'Steel::HorzBarRed' */
+EW_RES_WITHOUT_VARIANTS( SteelHorzBarRed )
+
+/* Bitmap resource : 'Steel::HorzBarGreen' */
+EW_DEFINE_BITMAP_RES( SteelHorzBarGreen )
+  EW_BITMAP_FRAMES( SteelHorzBarGreen, Default, EW_DRIVER_VARIANT_RGBA8888, 10, 24, 0 )
+    EW_BITMAP_FRAME( 0, 1, 10, 22, 0x00000000, 0x00000000 ),
+    EW_BITMAP_FRAME( 0, 1, 10, 22, 0x00000154, 0x00000000 )
+
+  EW_BITMAP_PIXEL_R180( SteelHorzBarGreen, Default )            /* ratio 36.25 % */
+    0x20400900, 0x81204B70, 0x0E11067F, 0xA1307854, 0x2C0585C3, 0x2097F814, 0x13828285,
+    0x81001E26, 0x15029FE0, 0x58B23C0A, 0x82A49220, 0x32532591, 0x1FE0D1A0, 0xFE152185,
+    0xE070D819, 0x0C1882DF, 0xF1E839FE, 0x9E8FA740, 0x04FA7E0E, 0xCF68342A, 0xFC585515,
+    0x88668213, 0x17350ECC, 0x7469C8CC, 0x58AAD5A8, 0xF2C0BA85, 0x36121FE2, 0x9D469E48,
+    0x59A8B57A, 0x6DFF68A2, 0xAC35FAED, 0xC936A801, 0xD73B4D66, 0x60AF5AEA, 0x7AA5C6C5,
+    0xAD5D2CB6, 0x85BAF15C, 0xDFEF952B, 0xB70376C3, 0xAFD85BD5, 0x1777BAE3, 0xF86B1DBF,
+    0x91AADF71, 0x6BDE4EF3, 0xC5663119, 0xBDCB099A, 0xE66D3A4C, 0xAB3B94C1, 0xB478CD3E,
+    0x416AD2E7, 0xB75CE6A3, 0x9BD65F76, 0xDD7EDB1B, 0xCAE8B713, 0x4EFB1DBB, 0x70F83C1D,
+    0xCB8DB0DA, 0xF93C0D6E, 0x5DB9E5ED, 0xFCBC86AB, 0x2B9A8780, 0x01F83E73, 0x0850BA61,
+    0xA3FC2240, 0x3FC6A5C1, 0x789A7026, 0x03F2115C, 0x94FF1013, 0x7F1259B8, 0xF2FA7D7E,
+    0x227FDBF1, 0x363FCA07, 0x4FF1B089, 0xF1C88D1C, 0x704906CF, 0x871A4BD0, 0x228FF1A4,
+    0x4FF228A1, 0x3234A323, 0x5A178561, 0x8F85A148, 0x3FC8F294, 0xC9E2C49E, 0xC2C09C3F,
+    0x01012F49, 0x20E43500, 0x81204B70, 0x0E11067F, 0xA1307854, 0x9E2585C3, 0xE467F818,
+    0x205B82D2, 0x67F8148A, 0x7F824E83, 0xF8313448, 0xC8D404A7, 0x924D2792, 0xD3E4A954,
+    0x1CBD2C48, 0xEE336BFC, 0x6417BFC2, 0x42A3FC10, 0x6F9A264B, 0x11A5FE11, 0x51687417,
+    0xA69142A2, 0x8F741709, 0x12FF1739, 0x2FF223A1, 0x569D1A46, 0x9A34C972, 0xAED7A8F4,
+    0x8B98FB60, 0x3A51AFF1, 0xFEAF5525, 0xA955BACB, 0xB95CAFDB, 0x166B258A, 0x5AAC55AD,
+    0xAB7DC6C1, 0xB2DCE917, 0x6DE2D367, 0xDEEF970B, 0x0AEB7FA0, 0x70F79B5E, 0xC788C2DF,
+    0x96ABB602, 0x8ECBE3ED, 0xCBBE0713, 0xC3663098, 0xE62B257E, 0x69B1D96C, 0x0F299ABE,
+    0xAC390CFE, 0x1B95CDE8, 0xF72D6E83, 0xACCEEAB5, 0x5C5EA773, 0xDB6EB67A, 0xF6D365BC,
+    0xF0B49BBD, 0x1B8199DC, 0x75BA7CF7, 0x7DCCD8F1, 0x7B0BA727, 0xD4DFF375, 0xEE1EF76F,
+    0x368CF81C, 0x92F0AF3A, 0x049C46A9, 0x4FCB48E4, 0x9CE817F8, 0xD4907F8D, 0x69C9013D,
+    0x22721D24, 0xD74A3DFE, 0xFF7F3F44, 0xE017EDFD, 0x13A8927F, 0xB4A33FC5, 0xA73FC6D3,
+    0x3FC733B8, 0x41E39071, 0xB3B4A12F, 0xC4B63FC6, 0xB83FC8B3, 0x8708E3C4, 0x61F8821E,
+    0x12E61F87, 0x08FF240F, 0xFF27CF33, 0x274F3304, 0x000404BD, 0x00000000
+
+  EW_BITMAPS_TABLE( SteelHorzBarGreen )
+    EW_BITMAP( SteelHorzBarGreen, Default )
+EW_END_OF_BITMAP_RES( SteelHorzBarGreen )
+
+/* Table with links to derived variants of the bitmap resource : 'Steel::HorzBarGreen' */
+EW_RES_WITHOUT_VARIANTS( SteelHorzBarGreen )
+
+/* Bitmap resource : 'Steel::HorzBarYellow' */
+EW_DEFINE_BITMAP_RES( SteelHorzBarYellow )
+  EW_BITMAP_FRAMES( SteelHorzBarYellow, Default, EW_DRIVER_VARIANT_RGBA8888, 10, 24, 0 )
+    EW_BITMAP_FRAME( 0, 1, 10, 22, 0x00000000, 0x00000000 ),
+    EW_BITMAP_FRAME( 0, 1, 10, 22, 0x00000160, 0x00000000 )
+
+  EW_BITMAP_PIXEL_R180( SteelHorzBarYellow, Default )           /* ratio 36.04 % */
+    0x20502B00, 0x81204B70, 0x0E11067F, 0xA1307854, 0x381D85C3, 0xA377F818, 0x195B82C6,
+    0xB7F81430, 0x7F824522, 0xF8306C39, 0xC8C703B7, 0x924D2792, 0xC6E3A954, 0x1C4222C8,
+    0xE532BBFC, 0x2312BFC2, 0xF213FC10, 0x2714A643, 0x794DFE11, 0x51687412, 0x1A9142A2,
+    0x8C8687FD, 0xEA787F8B, 0xA267F910, 0x41224E84, 0xAADD2E64, 0xA0D1EBB4, 0xF8C4CC6A,
+    0x128F27C7, 0x61FF56AA, 0xE935EAD5, 0xC370B757, 0xB67B2D8E, 0x70ACD5EA, 0xFBD5BEB9,
+    0xB3592E4F, 0xDDB2EF68, 0x5FAF96DB, 0xE2D581BA, 0xEDB8CBE5, 0x1576C061, 0xD85BCE0F,
+    0x75BFD8B1, 0x4CA5AED3, 0xCBDF73B8, 0x6E6F2388, 0xE3E979EC, 0xAB3982CC, 0xB21A0C36,
+    0x4B95C5E6, 0x789D3D23, 0xB3D5EC74, 0x8C96A35B, 0xDD58365B, 0x56FB61B5, 0xF0B45B4D,
+    0x1B81C4DE, 0xF93A4C9F, 0x9BA9D75C, 0x9AFE2F37, 0xCFD66DF9, 0x8E1EDB77, 0x143FF31D,
+    0x94C27426, 0x048A0549, 0x4FCB4BE4, 0x8D66E7F8, 0xFA807F8D, 0xF2E9013C, 0x222D97DF,
+    0xD3D9F9FE, 0xFF7F3F44, 0xE017EDFD, 0x11FC827F, 0x4C963FC5, 0x9A3FC6D2, 0x3FC7325C,
+    0x41E1645C, 0xB244942F, 0xA4AB3FC6, 0xAD3FC8B2, 0x8708E2AC, 0x61F8821E, 0xD2BE1F87,
+    0xE8FF240A, 0xFF27CB82, 0x274B72E0, 0x000404BD, 0x28E87500, 0x81604B70, 0x0E11067F,
+    0xA1307854, 0xA25185C3, 0x69B7F818, 0x475B8313, 0x83C44C8E, 0x4FBFC127, 0x23FC189F,
+    0xC8C1AA45, 0x924D2792, 0xD8728954, 0xD4FF07B0, 0xEFF0C3A9, 0xFF0419CC, 0xF072E572,
+    0x09399CCF, 0x03A5D2FF, 0xD0E8942A, 0xA1D147A0, 0xDD8ECA03, 0xDCEE7F8B, 0x86C7F915,
+    0xBF5FCE0D, 0x6A451660, 0xAFD72BB4, 0x7540654D, 0xD5AA84B7, 0x1EB5587F, 0xAD76CADD,
+    0xC4ECA65B, 0xF55B2D46, 0x6DAFD66A, 0x17FDE6BD, 0xB3DD2C76, 0x15BEF169, 0x5CEFB5EC,
+    0xEAD576B3, 0x30D7BC1D, 0xEF68C459, 0xD83C9DEE, 0x84C4DFF1, 0xEB8E3733, 0xCA607217,
+    0x3E730B8B, 0x62B2375C, 0x5A8F8CCD, 0x75392CF6, 0x1FA3B068, 0x1AECFE97, 0xB2B95C35,
+    0x0D7EB701, 0xCBEC6F9A, 0x5F0B6DA6, 0xF0B77B3D, 0xD381B8CD, 0xB89B5DE6, 0x91BDD3EE,
+    0xBD0E2E77, 0xCFD274B6, 0xFDFF378F, 0x8F1C0E0F, 0x9DA984C2, 0x0528DDA0, 0xBDFE37DF,
+    0x5FE4F77B, 0xD72250A8, 0xFEA11BAD, 0xF7FA935D, 0x8FB7E7D7, 0x7F94BEBF, 0x06E3C8F2,
+    0x11D0F280, 0xF41F3A93, 0x6B3C4F12, 0x3D0F43FC, 0x4F53FC8C, 0x48488F3D, 0x4E1585A1,
+    0x903D6198, 0x3D8F63FC, 0x4F68789F, 0x0404BD27, 0x00000000
+
+  EW_BITMAPS_TABLE( SteelHorzBarYellow )
+    EW_BITMAP( SteelHorzBarYellow, Default )
+EW_END_OF_BITMAP_RES( SteelHorzBarYellow )
+
+/* Table with links to derived variants of the bitmap resource : 'Steel::HorzBarYellow' */
+EW_RES_WITHOUT_VARIANTS( SteelHorzBarYellow )
+
+/* Bitmap resource : 'Steel::HorzBarBlue' */
+EW_DEFINE_BITMAP_RES( SteelHorzBarBlue )
+  EW_BITMAP_FRAMES( SteelHorzBarBlue, Default, EW_DRIVER_VARIANT_RGBA8888, 10, 24, 0 )
+    EW_BITMAP_FRAME( 0, 1, 10, 22, 0x00000000, 0x00000000 ),
+    EW_BITMAP_FRAME( 0, 1, 10, 22, 0x0000015C, 0x00000000 )
+
+  EW_BITMAP_PIXEL_R180( SteelHorzBarBlue, Default )             /* ratio 36.25 % */
+    0x88180B00, 0x84604B70, 0x0E11067F, 0xA1307854, 0x100785C3, 0xE0D7F860, 0x065B8B81,
+    0xA7F8540E, 0x7F88C180, 0x00BC200E, 0x49062109, 0x96512193, 0x5FE30924, 0xFE3A0984,
+    0xE490E069, 0x1F05025F, 0x709041FE, 0x0B851FE3, 0x285E7C44, 0x4FE89422, 0xFE8B43A3,
+    0xCB83318B, 0xDA4923BF, 0x42005CD8, 0x4A1C84E7, 0xAA4D668F, 0x1B0CEB55, 0x7131FE5E,
+    0x556A6712, 0x22B75708, 0xDFF6AB5D, 0xCB63B0D7, 0x156AA026, 0x78AE576B, 0x2B057AD9,
+    0xBAD9AC96, 0x4DEAEF6D, 0x5CAFB6FA, 0xE6ED68BA, 0x70B8BC0D, 0x1989BFDC, 0xD8EB660F,
+    0x69B3DCEF, 0x5A564B05, 0xC56630F9, 0x86773793, 0x66B1799C, 0x032FA3CD, 0x31BA6D3E,
+    0x23AAC7DF, 0x17BD0EB3, 0xA5C465AE, 0x9A26B769, 0xCDE8371A, 0xFEDF5FA8, 0x5BB77C0C,
+    0x1B579EE1, 0x76DC7D9F, 0x8DCBD972, 0x9CCE26F7, 0xBAE574F9, 0xB0568F43, 0xB4CB8420,
+    0x29183015, 0x8642D44E, 0x887639F1, 0x4A6517F9, 0x4AFF961D, 0xEFF2909C, 0xF53A1449,
+    0x6FC7E7EF, 0x2A7EBF9F, 0xCFF1DC56, 0xF234711B, 0x48771D4F, 0x24084FF2, 0x1B0BD13C,
+    0x4FF22C6E, 0xF2948E23, 0x9C9123CF, 0x1B866172, 0x86A1886A, 0xCA824C91, 0x4284A03F,
+    0x7C9E3FCB, 0x012F4B22, 0x00000001, 0xF8441100, 0x8FE04B71, 0x0E11067F, 0xA1307854,
+    0x2E0B85C3, 0x8157F960, 0x0A5BAA45, 0x07F93428, 0x7FA08441, 0xFAB45A16, 0x2CC5E177,
+    0x9E512692, 0x82D2792C, 0x36FF590B, 0xAFF698DC, 0xFF7E9184, 0xF380741C, 0x648D432F,
+    0xD10440FF, 0x4E085417, 0x1E8B4610, 0xDF948A4D, 0x70591DBF, 0xF3835942, 0xFF3A87C1,
+    0xA678D834, 0xA5D22BB4, 0xD8FABB60, 0x9BCAB382, 0x6EB357AA, 0x6DB4CAF5, 0xC6FFAFD8,
+    0xCFFB3D96, 0x5CAD562A, 0xCB75EAE1, 0x7FDCA716, 0x5DDED166, 0x5F2DF7BB, 0xD7037FB8,
+    0xAFB78B4D, 0xC971C2E3, 0x576BA602, 0x98C3DE6D, 0xCCA626C3, 0xC7E67098, 0xB60B3749,
+    0x66B0DA0C, 0x372B8AC9, 0xAF9ACC86, 0x2F83C5E8, 0x791D2E9B, 0x9FD5E8EE, 0xCD45FB5B,
+    0xDD6D3639, 0xF6DF27B5, 0x6BF81B3C, 0xBB7FC4D5, 0xB65C3DE6, 0x61B6D3F2, 0x9C6E0693,
+    0xC5DC74B9, 0xECEF1F3F, 0xE8F2FA9C, 0x89E8400F, 0xBFDA4379, 0x87B24310, 0xDFFE9115,
+    0xB5383010, 0xD207F1CC, 0x307FABC5, 0x12C4E09E, 0xFF7F3E87, 0x9FF3FDFD, 0x51720180,
+    0x2C777D07, 0x901F1F42, 0x1302C7D0, 0x4742F4FD, 0x324DF422, 0x94957D0A, 0xFF86A182,
+    0x7D21B864, 0x5F429C97, 0x37D0B329, 0xF4FE2C4A, 0x00001012, 0x00000000
+
+  EW_BITMAPS_TABLE( SteelHorzBarBlue )
+    EW_BITMAP( SteelHorzBarBlue, Default )
+EW_END_OF_BITMAP_RES( SteelHorzBarBlue )
+
+/* Table with links to derived variants of the bitmap resource : 'Steel::HorzBarBlue' */
+EW_RES_WITHOUT_VARIANTS( SteelHorzBarBlue )
+
+/* Embedded Wizard */
