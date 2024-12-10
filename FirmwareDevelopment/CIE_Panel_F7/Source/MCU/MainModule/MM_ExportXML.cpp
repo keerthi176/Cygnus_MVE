@@ -451,7 +451,7 @@ void ExportXML::Output( )
 		{
 			DeviceConfig* d = p->devs + dv;
 	
-			OUT( "\t\t\t\t<device combination=\"%u\" zone=\"%u\" unit=\"%u\" location=\"%s\" type=\"%s\">\n", d->type, d->zone, d->unit, d->location, d->typestring );
+			OUT( "\t\t\t\t<device combination=\"%u\" branding=\"%u\" zone=\"%u\" unit=\"%u\" location=\"%s\" type=\"%s\">\n", d->type, d->branding, d->zone, d->unit, d->location, d->typestring );
 			
 			for( int i = 0; i < d->numInputs; i++ )
 			{

@@ -455,11 +455,12 @@ void TouchScreen::Poll( )
 				
 				// jump now w're in level 1
 				Send( EW_GOTO_PRIORITY_SCREEN_MSG, ew );
+				offset_shift = justnow - last_tap;
 			}
 		}
 	}
 	
-	if ( justnow > ( last_tap + offset_shift ) + 29 ) // 30 secs since last tap
+	if ( justnow > ( last_tap + offset_shift ) + 25 ) // 30 secs since last tap
 	{
 		// over 30 secs
 		// Goto fire screen
