@@ -411,7 +411,8 @@ typedef struct
    uint8_t   		type;            
    uint8_t   		zone;            
  
-   uint8_t   		flags;         
+	uint8_t   		branding;
+  uint8_t   		flags;         
 	uint8_t			numParams;
 	uint8_t			numInputs;
 	uint8_t        numOutputs;

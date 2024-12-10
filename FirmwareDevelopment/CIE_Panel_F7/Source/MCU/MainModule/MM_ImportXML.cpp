@@ -1160,7 +1160,12 @@ int DeviceHandler::Attribute( char* attr, char* value )
 		{
 			xmli->dev.type = atoi( value );
 			data |= 1;
-		}			
+		}	
+		CASE( "branding" )
+ 		{
+ 			xmli->dev.branding = atoi( value );
+ 			data |= 32;
+ 		}
 		CASE( "zone" )
 		{
 			xmli->dev.zone = atoi( value );
@@ -1188,7 +1193,7 @@ int DeviceHandler::Attribute( char* attr, char* value )
 
 int DeviceHandler::End( )
 {
-	if ( data == 31 )
+	if ( data == 63 )
 	{		
 		app.DebOut( "loc:%s z:%d u:%d\n", xmli->dev.location, xmli->dev.zone, xmli->dev.unit );
 		
