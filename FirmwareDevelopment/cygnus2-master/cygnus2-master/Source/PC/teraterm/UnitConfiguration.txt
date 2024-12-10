@@ -1,0 +1,10 @@
+; Unit configuration
+UnitAddress   = '0,0'
+UnitSyncFlag  = '1'
+UnitFrequency = '4'
+DeviceConfiguruation = '0'
+SystemID = '1111'
+UnitSerialNumber = '1712-01-00000'
+Use_PPU_UART_Port = '0'
+Tx_Power_Low = '2'
+Tx_Power_High = '5'

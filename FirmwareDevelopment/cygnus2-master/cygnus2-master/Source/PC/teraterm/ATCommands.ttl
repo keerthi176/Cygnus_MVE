@@ -1,0 +1,333 @@
+; AT command test script
+
+timeout = 5
+
+; Hide MACRO box
+show -1
+
+;For debug purposes
+;setecho 1
+
+number_of_parameters = 16
+
+; Parameter list - matches at command list
+strdim param number_of_parameters
+param[0] = 'System State'
+param[1] = 'All Parameters'
+param[2] = 'Unit Address'
+param[3] = 'Sync Flag'
+param[4] = 'Frequency' 
+param[5] = 'Device Configuruation' 
+param[6] = 'System ID'
+param[7] = 'Serial Number'
+param[8] = 'Use PPU UART Port'
+param[9] = 'Tx Power Low'
+param[10] = 'Tx Power High'
+param[11] = 'Test Mode'
+param[12] = 'Firmware Information'
+param[13] = 'Reboot the Unit'
+param[14] = 'Enter Bootloader'
+param[15] = 'OTA Head Read SerNo'
+
+; AT Command list - matches parameter list
+strdim atid number_of_parameters
+atid[0] = 'STATE'
+atid[1] = ''
+atid[2] = 'UA'
+atid[3] = 'SYNC'
+atid[4] = 'FREQ' 
+atid[5] = 'DEVCF' 
+atid[6] = 'SYSID'
+atid[7] = 'SERNO'
+atid[8] = 'BPPU'
+atid[9] = 'TXPLO'
+atid[10] = 'TXPHI'
+atid[11] = 'MODE'
+atid[12] = 'FI'
+atid[13] = 'R'
+atid[14] = 'BOOT'
+atid[15] = 'CMD,'
+
+; default configuration  - matches at command list
+include 'UnitConfiguration.txt'
+strdim default_param number_of_parameters
+default_param[0] = ''
+default_param[1] = ''
+default_param[2] = UnitAddress
+default_param[3] = UnitSyncFlag
+default_param[4] = UnitFrequency
+default_param[5] = DeviceConfiguruation
+default_param[6] = SystemID
+default_param[7] = UnitSerialNumber
+default_param[8] = Use_PPU_UART_Port
+default_param[9] = Tx_Power_Low
+default_param[10]= Tx_Power_High
+default_param[11] = ''
+default_param[12] = ''
+default_param[13] = ''
+default_param[14] = ''
+default_param[15] = ''
+
+; Command Type list
+strdim type 2
+type[0] = 'Read'
+type[1] = 'Write'
+
+; Command Type list for the 'All Parameters' selection
+strdim type_all 3
+type_all[0] = 'Read Config'
+type_all[1] = 'Write Config - Manual Values'
+type_all[2] = 'Write Config - Default Values'
+
+; Valid System States
+strdim system_states 5
+system_states[0] = 'IDLE'
+system_states[1] = 'CONFIG_SYNC'
+system_states[2] = 'CONFIG_FORM'
+system_states[3] = 'ACTIVE'
+system_states[4] = 'TEST MODE'
+
+do
+   ;Clear any previously received characters
+   flushrecv
+
+   write_default_parameters = 0
+
+   ; get parameter from user
+   listbox 'Select parameter' 'Parameter' param
+   if result=-1 then
+      end
+   else
+      paramsel = result
+   endif
+
+   if paramsel = 1 then
+      call read_write_all
+   elseif paramsel = 13 || paramsel = 14 then
+      call AT_Control_Command
+   elseif paramsel = 15 then
+      call AT_TransactionID_Command
+   else
+      ; get command type from user
+      listbox 'Select command type' 'Command Type' type
+      if result=-1 then
+         end
+      else 
+         command_type = result
+      endif
+
+      if command_type = 0 then
+         call AT_Read_Parameter
+      else
+         call AT_Write_Parameter
+      endif
+   endif
+
+   yesnobox 'Do you wish to execute another command?' 'User Control'
+
+   loop while result = 1
+end
+
+;********************************************************************************
+;*                             Subroutines                                      *
+;********************************************************************************
+; enter AT mode
+:enter_AT_mode
+
+   setsync 1
+   do
+      ; wake up unit
+      sendln '+++'
+      mpause 250
+
+      flushrecv
+
+      ; enter AT mode
+      sendln '+++'
+      wait 'OK'
+   loop while result <> 1
+
+   setsync 0
+   return
+
+;********************************************************************************
+; send AT Command after capturing Transaction ID
+:AT_TransactionID_Command
+
+   ; Address format is a bit different
+   inputbox atid[paramsel] 'Enter Transaction ID number'
+
+   sprintf2 atcommand "AT%s%s,1,10,1,0,?" atid[paramsel] inputstr
+   
+   yesnobox atcommand 'Please confirm the command'
+ 
+   call enter_AT_mode
+
+   ;Clear any previously received characters
+   flushrecv
+
+   ;Send the command
+   sendln atcommand
+ 
+   ; Return to the main routine
+   return
+
+;********************************************************************************
+; send AT Write Command
+:AT_Write_Parameter
+   do
+      if write_default_parameters = 0 then
+         ; get value from user
+         strcompare atid[paramsel] 'STATE'
+
+         if result = 0 then
+            ; Give the user a choice from the valid states
+            listbox 'Select State' 'State' system_states
+            sprintf2 atcommand "AT%s=%d" atid[paramsel] result
+         else            
+            strcompare atid[paramsel] 'UA'
+
+            if result = 0 then
+               ; Address format is a bit different
+               inputbox atid[paramsel] 'Enter address in the format: ZONE,UNIT'
+            else 
+               inputbox atid[paramsel] 'Enter value in decimal'
+            endif
+
+            ; create at write string
+            sprintf2 atcommand "AT%s=%s" atid[paramsel] inputstr
+         endif         
+      else
+         sprintf2 atcommand "AT%s=%s" atid[paramsel] default_param[paramsel]
+      endif
+
+      yesnobox atcommand 'Please confirm the command'
+
+      ; user cancelled
+      if result <> 1 goto retry_write
+      
+      call enter_AT_mode
+
+      flushrecv
+
+      sendln atcommand
+
+      wait 'OK' 'ERROR'
+
+      if result = 0 then 
+         yesnobox 'Do you wish to retry?' ' Timeout'
+         if result = 1 then 
+            result = -1
+         else
+            result = 1  
+         endif
+      elseif result = 2 then 
+         yesnobox 'Do you wish to retry?' ' ERROR'
+         if result = 1 then 
+            result = -1
+         else
+            result = 1  
+         endif
+      endif
+
+   :retry_write
+   loop while result <> 1
+ 
+   ; Return to the main routine
+   return
+
+;********************************************************************************
+; send AT Read Command
+:AT_Read_Parameter
+   do
+      ; create at read string
+      sprintf2 atcommand "AT%s?" atid[paramsel]
+      call enter_AT_mode
+
+      ;Clear any previously received characters
+      flushrecv
+
+      ; Send the command
+      sendln atcommand
+
+      ; Wait for the response
+      waitln atid[paramsel] 'ERROR' 
+
+      if result=0 then 
+         yesnobox 'Timeout: Do you wish to retry?' 'ERROR'
+         if result = 1 then 
+            result = -1
+         else
+            result = 1  
+         endif
+      elseif result = 1 then
+         strsplit inputstr ':'
+         sprintf2 message '%s =' atid[paramsel]
+         strconcat message groupmatchstr2
+         messagebox message 'Response'
+         result = 1
+      else 
+         yesnobox 'Error: do you wish to retry?' 'ERROR'
+         if result = 1 then 
+            result = -1
+         else
+            result = 1  
+         endif
+      endif
+   loop while result <> 1
+ 
+; Return to the main routine
+return
+
+;********************************************************************************
+:read_write_all
+   ; get command type from user
+   listbox 'Select command type' 'Command Type' type_all
+
+   if result=-1 then
+      end
+   else 
+      command_type = result
+
+      if result = 2 then
+         write_default_parameters = 1
+      else
+         write_default_parameters = 0
+      endif
+   endif
+
+   if command_type = 0 then
+      for i 2 10
+         paramsel = i
+         call AT_Read_Parameter
+      next
+   else 
+      for i 2 10
+         paramsel = i
+         call AT_Write_Parameter
+      next
+   endif
+
+   ; Return to the main routine
+   return
+
+ 
+;********************************************************************************
+; send AT Control Command
+:AT_Control_Command
+   ; create at read string
+   sprintf2 atcommand "AT%s" atid[paramsel]
+   yesnobox atcommand 'Please confirm the command'
+   call enter_AT_mode
+
+   ;Clear any previously received characters
+   flushrecv
+
+   ; Send the command
+   sendln atcommand
+
+   ; Wait for the response
+   waitln ''
+
+   ; Return to the main routine
+   return

@@ -1,0 +1,11 @@
+/.project
+/.pydevproject
+*.pyc
+/dist
+/build
+/xmodem.egg-info
+/.coverage
+/.tox
+/.cache
+/.idea
+*.py.swp

@@ -1,0 +1,65 @@
+; Reboot script
+
+timeout = 5
+
+; Hide MACRO box
+show -1
+
+;For debug purposes
+;setecho 1
+
+if paramcnt > 1 then
+   ; This is a call from the Python script to do a reset
+
+   connect param2
+
+   if result <> 2 then
+      setexitcode = 1
+      exit
+   endif
+
+   str2int baudrate param3
+   setbaud baudrate
+endif
+
+mpause 500
+
+call AT_Reboot_Command
+
+end
+
+;********************************************************************************
+;*                             Subroutines                                      *
+;********************************************************************************
+; enter AT mode
+:enter_AT_mode
+
+   setsync 1
+   do
+      ; wake up unit
+      sendln '+++'
+      mpause 250
+
+      flushrecv
+
+      ; enter AT mode
+      sendln '+++'
+      wait 'OK'
+   loop while result <> 1
+
+   setsync 0
+   return
+
+;********************************************************************************
+; send ATR
+:AT_Reboot_Command
+   call enter_AT_mode
+
+   ;Clear any previously received characters
+   flushrecv
+
+   ; Send the command
+   sendln 'ATR'
+
+   ; Return to the main routine
+   return

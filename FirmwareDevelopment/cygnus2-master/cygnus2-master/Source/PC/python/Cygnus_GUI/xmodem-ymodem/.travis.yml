@@ -1,0 +1,26 @@
+language: python
+
+env:
+  - TOXENV=py26
+  - TOXENV=py27
+  - TOXENV=py33
+  - TOXENV=pypy
+  - TOXENV=py34
+
+before_install:
+    - sudo apt-get -qq update
+
+install:
+  - pip install -q tox coveralls
+  - sudo apt-get install -qq -y lrzsz
+
+script:
+  - tox -e $TOXENV
+
+after_success:
+  - coveralls
+
+notifications:
+  email:
+    - contact@jeffquast.com
+    - maze@pyth0n.org

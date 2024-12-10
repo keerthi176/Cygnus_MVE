@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcunit", "LibCUnit\libcunit.vcxproj", "{E88E5D8B-FAA8-41FA-B0A5-77C924300C0E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestHarness", "TestHarness\TestHarness.vcxproj", "{C6339A24-F233-4D77-8087-0C97E73A81D7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E88E5D8B-FAA8-41FA-B0A5-77C924300C0E} = {E88E5D8B-FAA8-41FA-B0A5-77C924300C0E}
+		{09FB9BEE-5BFB-4DE3-A062-D60EF94B3A6A} = {09FB9BEE-5BFB-4DE3-A062-D60EF94B3A6A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoftwareTests", "SoftwareTests\SoftwareTests.vcxproj", "{09FB9BEE-5BFB-4DE3-A062-D60EF94B3A6A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E88E5D8B-FAA8-41FA-B0A5-77C924300C0E} = {E88E5D8B-FAA8-41FA-B0A5-77C924300C0E}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E88E5D8B-FAA8-41FA-B0A5-77C924300C0E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E88E5D8B-FAA8-41FA-B0A5-77C924300C0E}.Debug|Win32.Build.0 = Debug|Win32
+		{E88E5D8B-FAA8-41FA-B0A5-77C924300C0E}.Release|Win32.ActiveCfg = Release|Win32
+		{E88E5D8B-FAA8-41FA-B0A5-77C924300C0E}.Release|Win32.Build.0 = Release|Win32
+		{C6339A24-F233-4D77-8087-0C97E73A81D7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C6339A24-F233-4D77-8087-0C97E73A81D7}.Debug|Win32.Build.0 = Debug|Win32
+		{C6339A24-F233-4D77-8087-0C97E73A81D7}.Release|Win32.ActiveCfg = Release|Win32
+		{C6339A24-F233-4D77-8087-0C97E73A81D7}.Release|Win32.Build.0 = Release|Win32
+		{09FB9BEE-5BFB-4DE3-A062-D60EF94B3A6A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{09FB9BEE-5BFB-4DE3-A062-D60EF94B3A6A}.Debug|Win32.Build.0 = Debug|Win32
+		{09FB9BEE-5BFB-4DE3-A062-D60EF94B3A6A}.Release|Win32.ActiveCfg = Release|Win32
+		{09FB9BEE-5BFB-4DE3-A062-D60EF94B3A6A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC0B94E9-F978-4E2A-93EC-BF57BF37CC7C}
+	EndGlobalSection
+EndGlobal
