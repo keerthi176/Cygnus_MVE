@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="STSyncAlgoTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STPUPTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STChanHopSeqGenTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STWin32_hal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STRBUApplicationTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STAckManagementTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STStateMachineTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STDeviceTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STSessionManagementTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STMACTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageQueueStub.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STCommandProcessorTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STInputMonitorTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STTestModeTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STWin32_stubs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STATCommandTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STLEDTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STSACHManagementTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STI2CTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STSVITest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STNVMTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STDataManagerTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STBlf_AppUpdater.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Common\CO_HexString.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_Device.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_i2c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_InputMonitor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_NVM.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_svi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_AckManagement.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_ChanHopSeqGen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_MAC.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_MeshFormAndHeal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_PUP.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_SACH_Management.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_SessionManagement.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_SyncAlgorithm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Mesh\MC_TestMode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_ATCommand.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_CommandProcessor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_DataManager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_RBUApplicationTask.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\StateMachine\SM_StateMachine.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ST_BlfBoot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STNCUApplicationTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STDMSerialPortTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_SerialPort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Configuration\DM_NVM_cfg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Configuration\DM_SerialPort_cfg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_ApplicationCommon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_NCUApplicationStub.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Configuration\DM_LED_cfg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_NCUApplicationTask.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\Configuration\MM_ConfigSerial_cfg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_CIEQueueManager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="STCIEQueueManagerTest.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\MCU\MainModule\MM_CIEQueueManager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="STMainTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STSyncAlgoTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STChanHopSeqGenTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STRBUApplicationTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageQueueStub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STAckManagementTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STStateMachineTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STDeviceTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STSessionManagementTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STParentScanTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STPUPTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STMACTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STCommandProcessorTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STInputMonitorTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STTestModeTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Common\CO_Defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Common\CO_ErrorCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\DeviceManager\DM_Device.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\MainModule\MM_RBUApplicationTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_AckManagement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_ChanHopSeqGenPrivate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_ChanHopSeqGenPublic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_MAC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_ParentScan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_SessionManagement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_SyncPrivate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_SyncPublic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_TestMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\StateMachine\SM_StateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STATCommandTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Application\DeviceManager\DM_LED.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STLEDTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STSACHManagementTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STI2CTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STSVITest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STDMSerialPortTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STNCUApplicationTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\MainModule\MM_CIEQueueManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="STCIEQueueManagerTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\MCU\Configuration\MM_ConfigSerial_cfg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flash_interface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

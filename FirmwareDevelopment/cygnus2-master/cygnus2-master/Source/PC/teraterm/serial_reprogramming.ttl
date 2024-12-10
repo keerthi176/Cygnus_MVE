@@ -1,0 +1,177 @@
+; The timeout limit is 30 sec.
+timeout = 10
+
+; Hide MACRO box
+show -1
+
+;For debug purposes
+;setecho 1
+
+if paramcnt > 1 then
+   ; This is a call from the Python script
+   
+   connect param2
+
+   if result <> 2 then
+      setexitcode 1
+      exit
+   endif
+   
+   str2int baudrate param3
+   setbaud baudrate
+
+   do
+      ;Clear the received buffer.
+      flushrecv
+
+      call enter_AT_mode
+
+      sendln 'ATBOOT+'
+
+      waitln 'Waiting for the Application Image' 'BOOTLOADER SEED'
+   loop while result = 0
+
+   if result = 2 then
+      ; the bootloader is waiting for the seed
+      send '0x11223344' 0
+      waitln 'Waiting for the Application Image'
+   endif
+
+   ;mpause 250
+
+   ;try to send the new application
+   ymodemsend param4
+
+   if result = 1 then
+		;ymodemsend finished successfully
+		;Wait for the Bootloader confirmation
+		waitln 'BOOTLOADER: Serial Firmware Update Successful'
+
+		if result = 1 then 
+			;Clear any previously received characters
+			flushrecv
+			; Giv some delay for the application to start
+
+			mpause 3000
+			; Send the command
+			command = 'FA'
+			sprintf2 atcommand "AT%s?" command
+			sprintf2 response "%s: " command
+
+			call enter_AT_mode
+			sendln atcommand
+
+			; Wait for the response		
+			waitln response
+
+			if result=1 then
+				strsplit inputstr ':'
+				strcompare groupmatchstr2 ' 1'
+				if result = 0 then
+					new_image = 2
+				else
+					new_image = 1	
+				endif
+				sprintf2 atcommand "AT%s= %d" command new_image
+
+				call enter_AT_mode
+				sendln atcommand				
+			endif
+		setexitcode 0
+      else
+         ;Failed
+         setexitcode 1
+      endif
+   else
+      ;Failed
+      setexitcode 2
+   endif
+
+   exit
+else
+   ; this is the Manual call of the Macro from TeraTerm to update the Firmware
+
+   yesnobox 'Do you want to manually reset the Unit?' 'Firmware update method'
+
+   if result = 1 then 
+      ; Wait for Seed
+      waitln 'SEED = '
+      mpause 250
+      send '0x11223344' 0
+
+   else
+      flushrecv
+
+      call enter_AT_mode
+
+      sendln 'ATBOOT+'
+   endif
+
+   waitln 'Waiting for the Application Image'
+   
+   ; Select the Binary file
+   filenamebox 'Select the Binary File' 0
+
+   yesnobox inputstr 'Binary File Cofirmation' 0
+   if result=0 then 
+      send 
+      end
+   endif
+
+   ymodemsend inputstr
+   
+	if result = 1 then
+		;ymodemsend finished successfully
+		yesnobox 'Do you want to switch to the new Image?' 'Image Selection'
+		if result = 1 then 
+			;Clear any previously received characters
+			flushrecv
+
+			; Send the command
+			command = 'FA'
+			sprintf2 atcommand "AT%s?" command
+			sprintf2 response "%s: " command
+
+			call enter_AT_mode
+			sendln atcommand
+
+			; Wait for the response		
+			waitln response
+
+			if result=1 then
+				strsplit inputstr ':'
+				strcompare groupmatchstr2 ' 1'
+				if result = 0 then
+					new_image = 2
+				else
+					new_image = 1	
+				endif
+				sprintf2 atcommand "AT%s= %d" command new_image
+
+				call enter_AT_mode
+				sendln atcommand				
+			endif
+		endif
+	endif
+endif
+
+end
+ 
+;********************************************************************************/
+;                              Subroutines                                      */
+;********************************************************************************/
+; enter AT mode
+:enter_AT_mode
+   setsync 1
+   ; wake up unit
+   sendln '+++'
+   mpause 250
+
+   flushrecv
+
+   ; enter AT mode
+   sendln '+++'
+   wait 'OK'
+
+   setsync 0
+   return

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ProjectWorkspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_mpw.xsd">
+
+  <SchemaVersion>1.0</SchemaVersion>
+
+  <Header>### uVision Project, (C) Keil Software</Header>
+
+  <WorkspaceName>WorkSpace</WorkspaceName>
+
+  <project>
+    <PathAndName>.\rbu_txrx_slave\Source\SX1272_TXRX_Slave\SX1272_TXRX_Slave.uvprojx</PathAndName>
+    <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
+  </project>
+
+  <project>
+    <PathAndName>.\rbu_lora_rf_test\Source\SX1272_RX\SX1272_RX.uvprojx</PathAndName>
+    <NodeIsActive>1</NodeIsActive>
+    <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
+  </project>
+
+  <project>
+    <PathAndName>.\rbu_lora_rf_test\Source\SX1272_TX1_Main\SX1272_TX1_Main.uvprojx</PathAndName>
+    <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
+  </project>
+
+  <project>
+    <PathAndName>.\rbu_lora_rf_test\Source\SX1272_TX2_Interferer\SX1272_TX2_Interferer.uvprojx</PathAndName>
+    <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
+  </project>
+
+  <project>
+    <PathAndName>.\rbu_lora_sync_rf_test\Source\SX1272_Sync_RX\SX1272_Sync_RX.uvprojx</PathAndName>
+    <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
+  </project>
+
+  <project>
+    <PathAndName>.\rbu_lora_sync_rf_test\Source\SX1272_Sync_TX1_Main\SX1272_Sync_TX1_Main.uvprojx</PathAndName>
+    <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
+  </project>
+
+  <project>
+    <PathAndName>.\rbu_lora_sync_rf_test\Source\SX1272_Sync_TX2_Interferer\SX1272_Sync_TX2_Interferer.uvprojx</PathAndName>
+    <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
+  </project>
+
+  <project>
+    <PathAndName>.\rbu_pingpongcad\Source\SX1272PingPongCAD\SX1272PingPongCAD.uvprojx</PathAndName>
+    <NodeIsCheckedInBatchBuild>1</NodeIsCheckedInBatchBuild>
+  </project>
+
+  <project>
+    <PathAndName>.\rbu_lora_matlab_slave\Source\SX1272_Matlab_Slave\SX1272_Matlab_Slave.uvprojx</PathAndName>
+  </project>
+
+</ProjectWorkspace>

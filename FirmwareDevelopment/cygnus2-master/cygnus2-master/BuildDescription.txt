@@ -1,0 +1,186 @@
+This file contains a description of how to setup development tools and compile the code.
+
+1 Setting Up Tools
+
+1.1 GitHub Desktop - no longer used
+
+1.2 Keil Compiler
+
+1) The Keil installer is stored at \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Dev Tools & Boards\Keil MDK\MDK523.EXE
+Copy the .exe file to your hard drive and run it to install the Keil tools.
+2) After installing, it will open the release notes, which are at C:\Keil_v5\ARM\Hlp\Release_Notes.htm
+3) You now need to activate/license the software.  Navigate to the actual application (not a shortcut), which is probably C:\Keil_v5\UV4, then RMC on UV4.exe and 
+select Run with Avecto.  Next, go to http://www2.keil.com/stmicroelectronics-stm32/mdk#guides, note the Product Serial Number (PSN) (which may still be U1E21-CM9GY-L3G4L),
+and follow the activation instructions on the website.
+4) You must now install the hardware drivers.
+Copy this folder to your hard drive \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Dev Tools & Boards\ST-LINK\en.stsw-link009
+Open the local copy of the folder, RMC on stlink_winusb_install.bat, and choose Run with Avecto.
+5) To automatically conform with PA coding standards, do the following:
+   - Edit > Configuration > Editor Tab > C/C++ Files : 
+     - Check the "Insert Spaces for Tabs" box.
+     - Set the "Tab Size" to 3.
+
+1.3 Visual Studio (Professional)
+
+This is used for the unit test harness.
+install the following images. These are stored at \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Software\Tools\Visual Studio 2017
+- mu_visual_studio_professional_2017_version_15.2_x86_x64_10436510
+- mu_build_tools_for_visual_studio_2017_version_15.2_x86_x64_10436512
+
+1.4 TortoiseGit
+
+This is used for version control of the software
+
+Install the following image located at \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Software\Tools\TortoiseGit
+TortoiseGit-2.4.0.2-64bit.msi
+
+The project repository is located at https://github.com/bullproductsrnd/cygnus2/
+
+1.5 FileZilla
+
+This is used for access to the project FTP site
+
+Install the image located at \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Software\Tools\FileZilla
+
+The project server is located at sftp://BullProducts@remote.bullproducts.co.uk
+SFTP Server: remote.bullproducts.co.uk
+Port: 22
+Username: BullProducts
+Password: Cygnus22
+
+1.6 Jira
+
+Use the Google Crome browser
+The Cygnus 2 jira project is here https://bplpac.atlassian.net/secure/RapidBoard.jspa?rapidView=1&projectKey=CYG2
+
+1.7 TeraTerm
+
+This is used as a terminal emulator for confuring the targets
+install the following image stored at \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Software\Tools\TeraTerm
+- teraterm-4.88.exe
+
+Locate the configuration file TERATERM.INI which is located in the install directory (C:\Program Files (x86)\teraterm on mine) and change the following setting:
+LogTimestamp=on
+CRSend=CRLF
+
+1.8 Python
+
+Python 3.6.2 is used for a number of development and test scripts
+
+Run the installer located at \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Software\Tools\Python\python-3.6.2-amd64
+The installer needs to be run with Avecto to elevate priviledges
+
+pyserial:
+This python module is used to access the serial port from python
+
+copy pyserial-3.4.tar.gz from \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Software\Tools\Python to your PC to the site-packages location of your Python install. On mine this was located at C:\Users\NAME\AppData\Local\Programs\Python\Python36\Lib\site-packages
+
+extract the files using 'tar -xzf pyserial-3.4.tar.gz' from cygwin.
+
+cd pyserial-3.4
+type 'python setup.py install' to install pyserial
+
+1.9 MISRA code checker
+
+MISRA checking is performed using the Gimpel PC-Lint tool. A single version of this was purchased that was manually run for selected files at the time that code was released.
+
+The PC Lint tool was called from the uVision tool. It required the following lines to be set up in the file MCU.uvoptx;
+      <LintExecutable>C:\Program Files (x86)\PC-lint 9.0\lint-nt.exe</LintExecutable>
+      <LintConfigFile></LintConfigFile>
+      <bLintAuto>0</bLintAuto>
+      <bAutoGenD>0</bAutoGenD>
+      <LntExFlags>59</LntExFlags>
+      <pMisraName>.\Lint\MISRA_C_2012_Config.lnt</pMisraName>
+      <pszMrule>MISRA_C_2012_Config</pszMrule>
+
+This uses the configuration file MISRA_C_2012_Config.lnt which is stored in the project GIT repository.
+
+To perform a check on a file:
+- open uVision with one of the MCU projects selected
+- open the file to be checked
+- Click on Tools -> Lint <file name>
+- the output from PC Lint will appear in the Build Output windows
+- store this in a file on the project server at \\paconsulting\practicedata\TIP\Jobs\BUPR0002S_Cygnus 2.HKD\04. Technical\Software\MISRA test results
+
+
+
+2 Compiling Code for target
+
+The application project file is in the GIT repository at cygnus2\Source\MCU\Application\MCU.uvprojx
+The bootloader project file is in the GIT repository at cygnus2\Source\MCU\Bootloader\Bootloader.uvprojx
+
+To compile the project, select Project>Build Target (F7)
+To download the exe to the board, select Debug>Start/Stop Debug Session (Ctrl+F5)
+
+
+3 Unit Tests
+
+The following version of Visual Studio Professional was used during development: 15.2 (26430.6) with .NET Framework 4.6.01055
+
+To compile the unit tests:
+- open Source / CUnitTest / Cunit.sln with Visual Studio
+- Click on Build -> Build solution
+- this will create the file Debug / TestHarness.exe
+
+To run the tests from console:
+- open a windows command prompt in the Debug directory
+- run 'TestHarness.exe -c'
+- enter 'r' to run tests
+- a summary of the test results will be printed
+- enter 'q' to quit the test harness
+
+
+4 Jenkins server for Continuous Integration
+
+4.1 Jenkins server
+project page   http://camtipci.paconsulting.com/jenkins/job/Cygnus2/job/DebugBuild/
+build node     Cygnus2-onswbuild2-d1
+
+This has been configured to build if
+1) the code in gitlab changes
+2) periodically twice per day
+If errors are detected an email is sent to the team
+
+4.2 Build Server
+build server      \\swbuild2-d1
+location of VM    \\swbuild2-d1\BuildVMsC\Cygnus
+VM                Windows10.vdi
+
+4.3 VM
+OS                Windows 10
+access            remote desktop connection
+host name         swbuild2-d1-buildvm-cygnus2
+account           swbuild2-d1-buildvm-cygnus2\developer
+agent location    c:\Jenkins
+
+4.4 Gitlab
+location of clone    https://camtgsource.paconsulting.com/Bull/Cygnus2
+command to push      git push gitlab master
+
+4.5 Script to check for Github updates
+A script has been created to poll github periodically. If it detects updates are available it
+pulls the changes and then pushed to gitlab.
+
+The script runs in a clone of the repository. It is invoked using the batch file wrapper.
+
+script         Source/PC/batch/checkgithub.sh
+wrapper        Source/PC/batch/CheckGithubForUpdates.bat
+
+
+5 Python scripts
+These are all located in Source/PC/python except for build.py which is located in the top level directory
+
+build.py             Performs a batch build on all configurations of the MCU code, the Unit Tests and the Mesh DLL
+terminal_start.pyw   starts teraterm windows using a configuration from terminal_configurations. Optionally enable logging.
+terminal_stop.pyw    stops teraterm windows using a configuration.
+mkdir_datetime.py    create a new directory with name derived from the current date / time
+logdecode.py         script to decode Mesh Messages from either a file input or serial interface. This requires Mesh.dll.
+guidecode.py         simple gui that allows a user to decode Mesh Messages. This requires Mesh.dll.
+logparse.py          script to parse a log file and generate CSV files for analysis. This requires Mesh.dll.
+firmware_update.py   script to update all RBU boards using serial interfaces defined in terminal_configurations.
+
+
+
+
+
+

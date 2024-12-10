@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{09FB9BEE-5BFB-4DE3-A062-D60EF94B3A6A}</ProjectGuid>
+    <RootNamespace>SoftwareTests</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.26323.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\MCU\MainModule;$(ProjectDir)..\..\MCU\Common;$(ProjectDir)..\..\MCU\Mesh;$(ProjectDir)..\LibCUnit\Headers;$(ProjectDir)..\..\MCU\DeviceManager;$(ProjectDir)..\..\MCU\DeviceManager\sx1272;$(ProjectDir)..\..\MCU\StateMachine;$(ProjectDir)..\..\MCU\Bootloader;$(ProjectDir)..\..\MCU\Configuration;$(ProjectDir)..\SoftwareTests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;STM32L476xx;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;__NO_RETURN=__declspec(noreturn);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\MCU\MainModule;$(ProjectDir)..\..\MCU\Common;$(ProjectDir)..\..\MCU\Mesh;$(ProjectDir)..\LibCUnit\Headers;$(ProjectDir)..\..\MCU\RTX\INC;$(ProjectDir)..\..\MCU\DeviceManager;$(ProjectDir)..\..\MCU\DeviceManager\sx1272;$(ProjectDir)..\..\MCU\DeviceManager\STM32L0xx_HAL_Driver\Inc;$(ProjectDir)..\..\MCU\StateMachine;$(ProjectDir)..\..\MCU\Bootloader\Inc;$(ProjectDir)..\SoftwareTests;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\MCU\Common\CO_HexString.c" />
+    <ClCompile Include="..\..\MCU\Configuration\DM_LED_cfg.c" />
+    <ClCompile Include="..\..\MCU\Configuration\DM_NVM_cfg.c" />
+    <ClCompile Include="..\..\MCU\Configuration\DM_SerialPort_cfg.c" />
+    <ClCompile Include="..\..\MCU\Configuration\MM_ConfigSerial_cfg.c" />
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_Device.c" />
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_i2c.c" />
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_InputMonitor.c" />
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_NVM.c" />
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_svi.c" />
+    <ClCompile Include="..\..\MCU\DeviceManager\DM_SerialPort.c" />
+    <ClCompile Include="..\..\MCU\MainModule\MM_ApplicationCommon.c" />
+    <ClCompile Include="..\..\MCU\MainModule\MM_ATCommand.c" />
+    <ClCompile Include="..\..\MCU\MainModule\MM_CIEQueueManager.c" />
+    <ClCompile Include="..\..\MCU\MainModule\MM_CommandProcessor.c" />
+    <ClCompile Include="..\..\MCU\MainModule\MM_DataManager.c" />
+    <ClCompile Include="..\..\MCU\MainModule\MM_NCUApplicationStub.c" />
+    <ClCompile Include="..\..\MCU\MainModule\MM_NCUApplicationTask.c" />
+    <ClCompile Include="..\..\MCU\MainModule\MM_RBUApplicationTask.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_AckManagement.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_ChanHopSeqGen.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_MAC.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_MeshFormAndHeal.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_PUP.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_SACH_Management.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_SessionManagement.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_SyncAlgorithm.c" />
+    <ClCompile Include="..\..\MCU\Mesh\MC_TestMode.c" />
+    <ClCompile Include="MessageQueueStub.c" />
+    <ClCompile Include="STAckManagementTest.c" />
+    <ClCompile Include="..\..\MCU\StateMachine\SM_StateMachine.c" />
+    <ClCompile Include="STATCommandTest.c" />
+    <ClCompile Include="STBlf_AppUpdater.c" />
+    <ClCompile Include="STCIEQueueManagerTest.c" />
+    <ClCompile Include="STDataManagerTest.c" />
+    <ClCompile Include="STDMSerialPortTest.c" />
+    <ClCompile Include="STI2CTest.c" />
+    <ClCompile Include="STInputMonitorTest.c" />
+    <ClCompile Include="STChanHopSeqGenTest.c" />
+    <ClCompile Include="STCommandProcessorTest.c" />
+    <ClCompile Include="STDeviceTest.c" />
+    <ClCompile Include="STLEDTest.c" />
+    <ClCompile Include="STMACTest.c" />
+    <ClCompile Include="STNCUApplicationTest.c" />
+    <ClCompile Include="STNVMTest.c" />
+    <ClCompile Include="STPUPTest.c" />
+    <ClCompile Include="STRBUApplicationTest.c" />
+    <ClCompile Include="STSACHManagementTest.c" />
+    <ClCompile Include="STSessionManagementTest.c" />
+    <ClCompile Include="STStateMachineTest.c" />
+    <ClCompile Include="STSVITest.c" />
+    <ClCompile Include="STSyncAlgoTest.c">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\MCU\Mesh;$(SolutionDir)..\PICMain\SystemConfiguration;$(SolutionDir)..\PICMain\StateMachine;$(SolutionDir)..\PICMain\MainModule;$(SolutionDir)PICMain;$(SolutionDir)..\PICMain\DeviceManager;$(SolutionDir)..\PICMain;$(SolutionDir)LibCUnit\Headers;$(SolutionDir)..\PICMain\ExternalComms;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\MCU\Mesh;$(SolutionDir)..\PICMain\SystemConfiguration;$(SolutionDir)..\PICMain\StateMachine;$(SolutionDir)..\PICMain\MainModule;$(SolutionDir)PICMain;$(SolutionDir)..\PICMain\DeviceManager;$(SolutionDir)..\PICMain;$(SolutionDir)LibCUnit\Headers;$(SolutionDir)..\PICMain\ExternalComms;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="STTestModeTest.c" />
+    <ClCompile Include="STWin32_hal.c" />
+    <ClCompile Include="STWin32_stubs.c" />
+    <ClCompile Include="ST_BlfBoot.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\MCU\Application\Common\CO_Defines.h" />
+    <ClInclude Include="..\..\MCU\Application\Common\CO_ErrorCode.h" />
+    <ClInclude Include="..\..\MCU\Application\DeviceManager\DM_Device.h" />
+    <ClInclude Include="..\..\MCU\Application\DeviceManager\DM_LED.h" />
+    <ClInclude Include="..\..\MCU\Application\MainModule\MM_RBUApplicationTask.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_AckManagement.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_ChanHopSeqGenPrivate.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_ChanHopSeqGenPublic.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_MAC.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_ParentScan.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_SessionManagement.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_SyncPrivate.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_SyncPublic.h" />
+    <ClInclude Include="..\..\MCU\Application\Mesh\MC_TestMode.h" />
+    <ClInclude Include="..\..\MCU\Application\StateMachine\SM_StateMachine.h" />
+    <ClInclude Include="..\..\MCU\Configuration\MM_ConfigSerial_cfg.h" />
+    <ClInclude Include="..\..\MCU\MainModule\MM_CIEQueueManager.h" />
+    <ClInclude Include="flash_interface.h" />
+    <ClInclude Include="MessageQueueStub.h" />
+    <ClInclude Include="STAckManagementTest.h" />
+    <ClInclude Include="STATCommandTest.h" />
+    <ClInclude Include="STCIEQueueManagerTest.h" />
+    <ClInclude Include="STDMSerialPortTest.h" />
+    <ClInclude Include="STI2CTest.h" />
+    <ClInclude Include="STInputMonitorTest.h" />
+    <ClInclude Include="STChanHopSeqGenTest.h" />
+    <ClInclude Include="STCommandProcessorTest.h" />
+    <ClInclude Include="STDeviceTest.h" />
+    <ClInclude Include="STLEDTest.h" />
+    <ClInclude Include="STMACTest.h" />
+    <ClInclude Include="STMainTest.h" />
+    <ClInclude Include="STNCUApplicationTest.h" />
+    <ClInclude Include="STPUPTest.h" />
+    <ClInclude Include="STParentScanTest.h" />
+    <ClInclude Include="STRBUApplicationTest.h" />
+    <ClInclude Include="STSACHManagementTest.h" />
+    <ClInclude Include="STSessionManagementTest.h" />
+    <ClInclude Include="STStateMachineTest.h" />
+    <ClInclude Include="STSVITest.h" />
+    <ClInclude Include="STSyncAlgoTest.h" />
+    <ClInclude Include="STTestModeTest.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

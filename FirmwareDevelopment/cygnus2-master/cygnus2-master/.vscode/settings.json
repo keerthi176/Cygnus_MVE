@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "inttypes.h": "c",
+        "cunit.h": "c",
+        "mc_pup.h": "c",
+        "mm_atcommand.h": "c",
+        "messagequeuestub.h": "c",
+        "mm_athandletask.h": "c",
+        "mm_commandprocessor.h": "c",
+        "dm_crc.h": "c",
+        "mm_meshtask.h": "c",
+        "mm_ncuapplicationtask.h": "c",
+        "mm_rbuapplicationtask.h": "c"
+    }
+}
