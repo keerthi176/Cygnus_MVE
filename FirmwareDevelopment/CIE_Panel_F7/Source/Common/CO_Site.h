@@ -409,8 +409,8 @@ typedef struct
 	char				typestring[ SITE_MAX_STRING_LEN ];
    uint16_t  		unit;          
    uint8_t   		type;            
-   uint8_t   		zone;            
- 
+   uint8_t   		zone;
+	
 	uint8_t   		branding;
   uint8_t   		flags;         
 	uint8_t			numParams;

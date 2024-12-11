@@ -379,8 +379,11 @@ void ExportXML::Poll( )
 void ExportXML::Output( )
 {
 	Site* s = site;
+	Panel* p = s->panels;
+
+	OUT( "<site name=\"%s\" uniqueid=\"%s\" version=\"%u\" productrange=\"%u\" panelbatterylow=\"%u\" batterylow=\"%u\" batterymed=\"%u\" batteryhigh=\"%u\" batterylowsn=\"%u\" batterymedsn=\"%u\" batteryhighsn=\"%u\">\n",
+			s->name, s->uid, s->version, p -> numRadioDevs, s -> batt_panel , s-> batt_low[0], s-> batt_med[0], s-> batt_high[0], s-> batt_low[1], s-> batt_med[1], s-> batt_high[1] );
 	
-	OUT( "<site name=\"%s\" uniqueid=\"%s\" version=\"%u\">\n", s->name, s->uid, s->version );
 	OUT( "\t<profiles>\n" );
 	
 	for( int n = 0; n < SITE_NUM_PROFILES; n++ )
@@ -414,7 +417,7 @@ void ExportXML::Output( )
 	
 	for( n = 0 ; n < s->numPanels; n++ )
 	{	
-		Panel* p = s->panels + n;
+		p = s->panels +n;
 		
 		OUT( "\t\t<panel name=\"%s\" address=\"%d\" numLEDS=\"%d\" systemID=\"%d\" startfrequency=\"%d\" resoundsamezone=\"%s\" alldelaysoff=\"%s\"\
 				maxdevices=\"%d\" framelength=\"%d\" useglobaldelays=\"%s\" delay1=\"%d\" delay2=\"%d\" ignoresecuritydaytime=\"%s\" ignoresecuritynighttime=\"%s\" gsm=\"%s\" >\n",
