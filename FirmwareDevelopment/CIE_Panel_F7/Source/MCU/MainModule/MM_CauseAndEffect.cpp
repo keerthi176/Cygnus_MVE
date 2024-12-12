@@ -38,7 +38,7 @@
 #include "MM_CUtils.h"
 #include "MM_Fault.h"
 #include "MM_Buzzer.h"
-
+#include "MM_NCU.h"
 
  
 #define MAX_ITERATIONS 5
@@ -249,6 +249,7 @@ Device* FindUnit( int unit  )
 
 static void GetChannelLogic( CAEInput* i, Device* dev, int chan, int& result )
 {
+	
 	int state = false;
 	
 	if ( dev == NULL )
@@ -257,7 +258,8 @@ static void GetChannelLogic( CAEInput* i, Device* dev, int chan, int& result )
 		// TODO: create fault
 		return;
 	}
-			
+
+	
 	if ( dev->IsInputChannel( chan ) )
 	{		 	
 		gotresult = true;
@@ -270,10 +272,15 @@ static void GetChannelLogic( CAEInput* i, Device* dev, int chan, int& result )
 			// is it flagged for co-incidence
 			if ( dev->config->input[ chan ].flags & CHANNEL_OPTION_COINCIDENCE ) 
 			{
+			
 				if ( !( global_rule->flags & RULE_ACTIVE ) )
 				if ( dev->timeAsserted[ chan ] + i->within * 60 < now( ) )
 				{
+					app.DeviceObject = 0;
+					AppDeviceClass_TriggerResetEvent( app.DeviceObject );
+					
 					app.DebOut( "Timeout!\n" );
+					
 					if ( dev->flags[ chan ] & INPUT_LATCHED )
 					{
 						dev->flags[ chan ] &= ~INPUT_LATCHED;
@@ -287,9 +294,11 @@ static void GetChannelLogic( CAEInput* i, Device* dev, int chan, int& result )
 						ncu->QueueWriteMsg( false, NCU_EVENT_FAULT_RESET, NULL, NULL, dev->config->zone, dev->config->unit, 1 ); 	// 1 = EVENTS ONLY
 						app.DebOut( "Resettings chan %d unit %d.\n", chan, dev->config->unit );
 					}	
-					return;		
-				}
 					
+					return;
+				}
+
+
 				// do we light a zone?
 				if ( i->flags & CAE_OPTION_COINCIDENCE_LIGHT_FIRST || global_rule->flags & RULE_ACTIVE )
 				{
