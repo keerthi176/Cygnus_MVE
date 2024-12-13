@@ -421,10 +421,7 @@ int PanelHandler::Attribute( char* attr, char* value )
 		{
 			xmli->panel->maxDevices = atoi( value );
 		}
-		CASE( "numRadioDevs" )
-		{
-			xmli->panel->numRadioDevs = atoi( value );
-		} 
+		 
 		CASE( "ignoresecuritynighttime" )
 		{
 			int result;
@@ -1184,6 +1181,7 @@ int DeviceHandler::Attribute( char* attr, char* value )
 			STRCHK( xmli->dev.typestring, value, SITE_MAX_STRING_LEN );
 			data |= 16;		
 		}		
+	 	 	
 	return XML_OK;
 }
 
