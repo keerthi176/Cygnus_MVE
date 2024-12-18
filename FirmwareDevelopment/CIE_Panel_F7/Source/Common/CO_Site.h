@@ -585,8 +585,10 @@ typedef struct
 typedef struct
 {
    char      		name[ SITE_MAX_STRING_LEN ];
-	char				uid[ SITE_MAX_STRING_LEN ];
+	char					uid[ SITE_MAX_STRING_LEN ];
 	unsigned int	version;	
+
+	unsigned int	productrange;
 
    uint8_t   		flags;
 	uint8_t			numContacts;
@@ -604,7 +606,7 @@ typedef struct
 
    Panel     		panels[ SITE_MAX_PANELS ];
 	
-
+	
 } Site;
 
 const char* GetActionString( int action );

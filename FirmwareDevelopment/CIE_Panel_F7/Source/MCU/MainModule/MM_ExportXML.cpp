@@ -381,7 +381,7 @@ void ExportXML::Output( )
 	Site* s = site;
 	
 	OUT( "<site name=\"%s\" uniqueid=\"%s\" version=\"%u\" panelbatterylow=\"%u\" batterylow=\"%u\" batterymed=\"%u\" batteryhigh=\"%u\" batterylowsn=\"%u\" batterymedsn=\"%u\" batteryhighsn=\"%u\" productrange=\"%u\">\n", s->name, s->uid, s->version, s->batt_panel, 
-	s->batt_low[0], s->batt_med[0], s->batt_high[0], s->batt_low[1], s->batt_med[1], s->batt_high[1], s->numPanels );
+	s->batt_low[0], s->batt_med[0], s->batt_high[0], s->batt_low[1], s->batt_med[1], s->batt_high[1], s->productrange );
 	OUT( "\t<profiles>\n" );
 	
 	for( int n = 0; n < SITE_NUM_PROFILES; n++ )

@@ -293,6 +293,8 @@ int SiteHandler::Attribute( char* attr, char* value )
 			STRCHK( xmli->site->uid, value, SITE_MAX_STRING_LEN );
 		}
 		CASE( "version" )		xmli->site->version = atoi( value );
+		CASE( "productrange" ) xmli->site->productrange = atoi( value ); 
+
 		CASE( "batterylow" ) xmli->site->batt_low[ 0] = atoi( value );
 		CASE( "batterymed" ) xmli->site->batt_med[ 0] = atoi( value );
 		CASE( "batteryhigh" ) xmli->site->batt_high[ 0] = atoi( value );
@@ -301,6 +303,7 @@ int SiteHandler::Attribute( char* attr, char* value )
 		CASE( "batteryhighsn" ) xmli->site->batt_high[ 1] = atoi( value ); 
 		CASE( "panelbatterylow" ) xmli->site->batt_panel = atoi( value ); 
 		
+
 	return XML_OK;
 }
 
