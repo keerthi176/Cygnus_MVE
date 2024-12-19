@@ -499,7 +499,13 @@ int PanelHandler::Attribute( char* attr, char* value )
 				}
 			}
 			else return XML_BAD_VALUE;
-		}	 
+		}
+		
+		CASE( "productrange" ) 
+		{
+			xmli->panel->productrange = atoi( value );
+		}
+		
 			 
 	return XML_OK;
 }

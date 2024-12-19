@@ -422,7 +422,7 @@ void ExportXML::Output( )
 				p->name, p->address, p->numZoneLeds, p->systemId, p->freq, GetBoolean( !(p->settings & SITE_SETTING_RESOUND_NEW_ZONE ) ),
 				GetBoolean( p->settings & SITE_SETTING_DISABLE_OUTPUT_DELAYS ),	p->maxDevices, p->framelength, GetBoolean( p->settings & SITE_SETTING_GLOBAL_DELAY_OVERRIDE ),
 				p->delay1, p->delay2,  GetBoolean( p->settings & SITE_SETTING_IGNORE_SECURITY_IN_DAY ), GetBoolean( p->settings & SITE_SETTING_IGNORE_SECURITY_AT_NIGHT ), 
-				GetBoolean( p->settings & SITE_SETTING_GSM_AVAILABLE), p->numPanelDevs );
+				GetBoolean( p->settings & SITE_SETTING_GSM_AVAILABLE), p->productrange );
 		
 		OUT( "\t\t\t<zones>\n" );
 		

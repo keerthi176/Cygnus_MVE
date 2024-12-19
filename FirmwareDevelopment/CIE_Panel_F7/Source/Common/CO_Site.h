@@ -562,7 +562,8 @@ typedef struct
    uint16_t  		numCaeRules;
 	uint16_t			numCaeInputs;
 	uint16_t			numCaeOutputs;
-		
+	uint16_t   		productrange;
+	
    DeviceConfig 	devs[ SITE_MAX_DEVICES ];
 	DeviceConfig 	units[ SITE_MAX_DEVICES ];
 	CAEInput			caeInputs[ SITE_MAX_CAE_INPUTS ];		
