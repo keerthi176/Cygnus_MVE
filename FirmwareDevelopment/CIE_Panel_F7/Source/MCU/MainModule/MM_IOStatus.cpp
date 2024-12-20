@@ -3064,7 +3064,8 @@ int IOStatus::Receive( Command* cmd )
 						for( int ch = 0 ; ch < d->config->numInputs; ch++ )
 						{
 							if ( d->IsInputOnTest( ch ) )
-							{	
+							{
+								Log::Msg(LOG_TST,"Zone:%d Devices:%d Active in Test", d->config->zone, d->config->unit);
 								n++;
 							}
 						}
@@ -3077,10 +3078,6 @@ int IOStatus::Receive( Command* cmd )
 			
 				// Bit of a hack, but may as well go here..
 				LED::Set( GPIO_TestMode, cmd->int0 + cmd->int1 > 0 ? LED_ON : LED_OFF );
-					if(cmd->int0 + cmd->int1 > 0) 
-					{
-						Log::Msg( LOG_TST, "Testing the number of zones:%d and number of devices:%d\n", cmd->int0, cmd->int1 );
-					}
 			}
 			else
 			{
