@@ -505,7 +505,6 @@ int PanelHandler::Attribute( char* attr, char* value )
 		{
 			xmli->panel->productrange = atoi( value );
 		}
-		
 			 
 	return XML_OK;
 }
