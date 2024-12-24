@@ -152,7 +152,6 @@ DeviceConfig Settings::new_device;
 extern USBH_HandleTypeDef hUSBHost[ MAX_HUB_PORTS + 1];
 
 
-
 /*************************************************************************/
 /**  \fn      static void SendError( const char* fmt, ... )
 ***  \brief   Helper func to send error string to GUI
@@ -1601,7 +1600,28 @@ int Settings::Receive( Command* cmd )
 		current_pos = -1;
 		prev_pos 	= -1;
 		
+		static FactorySettings *f;
+		FactorySettings fact_sett; 
+
+		fact_sett.zones 	 = *(char*)  0x90C00000;
+    fact_sett.leds  	 = *(char*)  0x90C00001;
+    fact_sett.devices  = *(short*) 0x90C00002;
+				
 		int res = EraseFlash( ) ? CMD_OK : CMD_ERR_DEVICE_BUSY;
+		
+		// Write back the erase.
+		if(quadspi->WriteToFlash( (char*) &fact_sett, QSPI_SETTINGS_ADDRESS  , sizeof( fact_sett ) ) )
+		{
+			if ( quadspi->WriteToFlash( (char*) &fact_sett, QSPI_SETTINGS_ADDRESS , sizeof( fact_sett ) ) != QSPI_RESULT_OK )
+			{
+				// Fault::AddFault( FAULT_NO_QSPI_COMMS );
+				Log::Msg(LOG_EVT,"Failed to write to flash");
+			}
+		}
+		 
+		fact_sett.zones 	 = *(char*)  0x90C00000;
+    fact_sett.leds  	 = *(char*)  0x90C00001;
+    fact_sett.devices  = *(short*) 0x90C00002;
 		
 		LED::AllLEDSOff( );
 		
