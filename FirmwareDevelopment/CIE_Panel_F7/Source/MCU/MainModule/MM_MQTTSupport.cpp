@@ -190,7 +190,7 @@ MQTTSupport::MQTTSupport( ) : Module( "MQTTSupport", 100, EVENT_RESET ), mqtt( H
 		 
 		}
 	}
-	memset(url,0,60);
+//	memset(url,0,60);
 	url[59] = 0;
 }
 

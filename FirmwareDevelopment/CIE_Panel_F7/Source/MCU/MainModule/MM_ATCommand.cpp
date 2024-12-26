@@ -296,7 +296,14 @@ int ATCommands::DecodeCommand( char* rxbuffer, char* txbuffer )
 		
 		sprintf( txbuffer, "URL:OK\r\n" );
 	}
-	
+	else if ( !strncmp( rxbuffer, "ATURL?", 6) )
+	{
+		Command cmd;
+
+		Command0( CMD_GET_CLOUD_DETAILS, &cmd );
+
+		sprintf( txbuffer, "%s\r\n", (char *) cmd.int1 );
+	}
 	else if ( !strncmp( rxbuffer, "ATNCUFW?", 8 ) )
 	{
 		Command cmd;
