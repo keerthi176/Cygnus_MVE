@@ -106,16 +106,16 @@ ActionEnum Action( char* s )
 	SWITCH( s )	
 		CASE( "fire" )				a = ACTION_SHIFT_FIRE;		 
 		CASE( "first-aid" )  	a = ACTION_SHIFT_FIRST_AID;	
-		CASE( "firstaid" )  		a = ACTION_SHIFT_FIRST_AID;		
-		CASE( "security" )  		a = ACTION_SHIFT_SECURITY;		
+		CASE( "firstaid" )  	a = ACTION_SHIFT_FIRST_AID;		
+		CASE( "security" )  	a = ACTION_SHIFT_SECURITY;		
 		CASE( "general" )  		a = ACTION_SHIFT_GENERAL;		
-		CASE( "evacuate" )  		a = ACTION_SHIFT_EVACUATION;			
+		CASE( "evacuate" )  	a = ACTION_SHIFT_EVACUATION;			
 		CASE( "fault" )   		a = ACTION_SHIFT_FAULT;
 		CASE( "reset" ) 			a = ACTION_SHIFT_RESET;
 		CASE( "silence" ) 		a = ACTION_SHIFT_SILENCE;
-		CASE( "routing-ack" ) 	a = ACTION_SHIFT_ROUTING_ACK;
+		CASE( "routing-ack" ) a = ACTION_SHIFT_ROUTING_ACK;
 		CASE( "routingack" ) 	a = ACTION_SHIFT_ROUTING_ACK;
-		CASE( "undefined" ) 		a = ACTION_SHIFT_UNDEFINED;
+		CASE( "undefined" ) 	a = ACTION_SHIFT_UNDEFINED;
 		CASE( "confirm" ) 		a = ACTION_SHIFT_CONFIRM_FIRE;
 		CASE( "output" )			a = ACTION_SHIFT_CAE_OUTPUT;
 	
