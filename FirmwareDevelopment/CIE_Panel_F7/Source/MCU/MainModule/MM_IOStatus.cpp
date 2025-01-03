@@ -782,6 +782,7 @@ int IOStatus::ProcessCauseAndEffect( int& silenceable_status, int& unsilenceable
 					if ( r->action == ACTION_SHIFT_CAE_OUTPUT )
 					{
 						CAEOutput* o = app.panel->caeOutputs + r->output;
+						Log::Msg( LOG_FIRE, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
 						
 						if ( o->effect == CAE_ACTIVATE )
 						{
@@ -793,12 +794,14 @@ int IOStatus::ProcessCauseAndEffect( int& silenceable_status, int& unsilenceable
 							cae->SetOutputStatus( r, device_list, device_list_pos - device_list, app.panel->caeOutputs, false, true );
 						}
 					}
-					// if action is fire
+					// if action is fire.
 					else if ( r->action == ACTION_SHIFT_FIRE )
 					{
 						Log::Msg( LOG_FIRE, "C&E Rule %d '%s' activated.", n + 1, r->name );
 					}
-					else if ( r->action != ACTION_SHIFT_FAULT )
+					
+					// if action is fault.
+					else if ( r->action == ACTION_SHIFT_FAULT )
 					{
 						Log::Msg( LOG_FIRE, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
 					}			
