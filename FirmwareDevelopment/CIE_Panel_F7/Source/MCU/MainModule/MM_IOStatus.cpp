@@ -824,8 +824,8 @@ int IOStatus::ProcessCauseAndEffect( int& silenceable_status, int& unsilenceable
 						Log::Msg( LOG_EVT, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
 					}		
 					
-				// if action is routing ack.
-					else if ( r->action == ACTION_SHIFT_ROUTING_ACK )
+				// if action is first Aid.
+					else if ( r->action == ACTION_SHIFT_FIRST_AID )
 					{
 						Log::Msg( LOG_EVT, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
 					}					
