@@ -95,7 +95,7 @@ int 	EEPROM::device = EEPROM_ADDRESS;
 void EEPROM::GetCurrent( EEPROMMap* dump )
 {  
 	Read( (uint8_t*) dump, sizeof(EEPROMMap), 0 );
-	memset(dump->AppSupp_URL,0,60);
+	//memset(dump->AppSupp_URL,0,60);
 }
 
 

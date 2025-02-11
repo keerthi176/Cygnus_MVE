@@ -14628,6 +14628,9 @@ void AppSystemPage_Init( AppSystemPage _this, XHandle aArg )
   XUInt8 p_leds;
   XUInt16 p_devs;
 
+	Site* s;
+	Panel* p = s->panels;
+	
   /* Dummy expressions to avoid the 'C' warning 'unused argument'. */
   EW_UNUSED_ARG( aArg );
 
@@ -14662,9 +14665,6 @@ void AppSystemPage_Init( AppSystemPage _this, XHandle aArg )
     p_zones = *(char*)  0x90C00000;
     p_leds  = *(char*)  0x90C00001;
     p_devs  = *(short*)  0x90C00002;
-		if( p_zones > 96 ) p_zones = 96;
-		if( p_leds > 96 ) p_leds = 96;
-		if( p_devs > 511 ) p_devs = 511;
   }
   WidgetSetHorizontalSlider_OnSetCurrentValue( &_this->HorzSlider, level );
   WidgetSetToggleButton_OnSetChecked( &_this->SMSEnable, sms );

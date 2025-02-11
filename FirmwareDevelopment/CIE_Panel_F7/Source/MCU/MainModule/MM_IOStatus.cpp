@@ -762,9 +762,9 @@ int IOStatus::ProcessCauseAndEffect( int& silenceable_status, int& unsilenceable
 			// if rule was previously FALSE?
 			if ( !( rule[ n].flags & RULE_TRUE ) )
 			{
-				rule[ n].time = _now;				 // timestamp rule
-				rule[ n].flags |= RULE_TRUE;		 // remember its true now
-				rule[ n].flags &= ~RULE_SILENCED; // reset silenced state
+				rule[ n].time = _now;				 				// timestamp rule
+				rule[ n].flags |= RULE_TRUE;		 		// remember its true now
+				rule[ n].flags &= ~RULE_SILENCED; 	// reset silenced state
 			}
 		
 			// If delay has passed
@@ -782,6 +782,7 @@ int IOStatus::ProcessCauseAndEffect( int& silenceable_status, int& unsilenceable
 					if ( r->action == ACTION_SHIFT_CAE_OUTPUT )
 					{
 						CAEOutput* o = app.panel->caeOutputs + r->output;
+						Log::Msg( LOG_EVT, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
 						
 						if ( o->effect == CAE_ACTIVATE )
 						{
@@ -793,15 +794,41 @@ int IOStatus::ProcessCauseAndEffect( int& silenceable_status, int& unsilenceable
 							cae->SetOutputStatus( r, device_list, device_list_pos - device_list, app.panel->caeOutputs, false, true );
 						}
 					}
-					// if action is fire
+					// if action is fire.
 					else if ( r->action == ACTION_SHIFT_FIRE )
 					{
 						Log::Msg( LOG_FIRE, "C&E Rule %d '%s' activated.", n + 1, r->name );
 					}
-					else if ( r->action != ACTION_SHIFT_FAULT )
+					
+					// if action is fault.
+					else if ( r->action == ACTION_SHIFT_FAULT )
 					{
-						Log::Msg( LOG_FIRE, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
-					}			
+						Log::Msg( LOG_FLT, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
+					}
+
+					// if action is security.
+					else if ( r->action == ACTION_SHIFT_SECURITY )
+					{
+						Log::Msg( LOG_EVT, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
+					}		
+
+					// if action is general.
+					else if ( r->action == ACTION_SHIFT_GENERAL )
+					{
+						Log::Msg( LOG_EVT, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
+					}
+
+					// if action is evacuatiion.
+					else if ( r->action == ACTION_SHIFT_EVACUATION )
+					{
+						Log::Msg( LOG_EVT, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
+					}		
+					
+				// if action is first Aid.
+					else if ( r->action == ACTION_SHIFT_FIRST_AID )
+					{
+						Log::Msg( LOG_EVT, "C&E Rule %d '%s' activated '%s' event.", n + 1, r->name, GetActionString( r->action ) );
+					}					
 				}
 			}
 		}
@@ -3064,7 +3091,8 @@ int IOStatus::Receive( Command* cmd )
 						for( int ch = 0 ; ch < d->config->numInputs; ch++ )
 						{
 							if ( d->IsInputOnTest( ch ) )
-							{	
+							{
+								Log::Msg(LOG_TST,"Zone:%d Devices:%d Active in Test", d->config->zone, d->config->unit);
 								n++;
 							}
 						}
@@ -3077,7 +3105,6 @@ int IOStatus::Receive( Command* cmd )
 			
 				// Bit of a hack, but may as well go here..
 				LED::Set( GPIO_TestMode, cmd->int0 + cmd->int1 > 0 ? LED_ON : LED_OFF );
-						 
 			}
 			else
 			{

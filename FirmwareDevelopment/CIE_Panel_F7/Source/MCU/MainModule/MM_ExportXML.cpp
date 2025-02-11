@@ -380,7 +380,8 @@ void ExportXML::Output( )
 {
 	Site* s = site;
 	
-	OUT( "<site name=\"%s\" uniqueid=\"%s\" version=\"%u\">\n", s->name, s->uid, s->version );
+	OUT( "<site name=\"%s\" uniqueid=\"%s\" version=\"%u\" panelbatterylow=\"%u\" batterylow=\"%u\" batterymed=\"%u\" batteryhigh=\"%u\" batterylowsn=\"%u\" batterymedsn=\"%u\" batteryhighsn=\"%u\" productrange=\"%u\">\n", s->name, s->uid, s->version, s->batt_panel, 
+	s->batt_low[0], s->batt_med[0], s->batt_high[0], s->batt_low[1], s->batt_med[1], s->batt_high[1], s->productrange );
 	OUT( "\t<profiles>\n" );
 	
 	for( int n = 0; n < SITE_NUM_PROFILES; n++ )
@@ -417,11 +418,11 @@ void ExportXML::Output( )
 		Panel* p = s->panels + n;
 		
 		OUT( "\t\t<panel name=\"%s\" address=\"%d\" numLEDS=\"%d\" systemID=\"%d\" startfrequency=\"%d\" resoundsamezone=\"%s\" alldelaysoff=\"%s\"\
-				maxdevices=\"%d\" framelength=\"%d\" useglobaldelays=\"%s\" delay1=\"%d\" delay2=\"%d\" ignoresecuritydaytime=\"%s\" ignoresecuritynighttime=\"%s\" gsm=\"%s\" >\n",
+				maxdevices=\"%d\" framelength=\"%d\" useglobaldelays=\"%s\" delay1=\"%d\" delay2=\"%d\" ignoresecuritydaytime=\"%s\" ignoresecuritynighttime=\"%s\" gsm=\"%s\" productrange=\"%u\" >\n",
 				p->name, p->address, p->numZoneLeds, p->systemId, p->freq, GetBoolean( !(p->settings & SITE_SETTING_RESOUND_NEW_ZONE ) ),
 				GetBoolean( p->settings & SITE_SETTING_DISABLE_OUTPUT_DELAYS ),	p->maxDevices, p->framelength, GetBoolean( p->settings & SITE_SETTING_GLOBAL_DELAY_OVERRIDE ),
 				p->delay1, p->delay2,  GetBoolean( p->settings & SITE_SETTING_IGNORE_SECURITY_IN_DAY ), GetBoolean( p->settings & SITE_SETTING_IGNORE_SECURITY_AT_NIGHT ), 
-				GetBoolean( p->settings & SITE_SETTING_GSM_AVAILABLE) );
+				GetBoolean( p->settings & SITE_SETTING_GSM_AVAILABLE), p->productrange );
 		
 		OUT( "\t\t\t<zones>\n" );
 		

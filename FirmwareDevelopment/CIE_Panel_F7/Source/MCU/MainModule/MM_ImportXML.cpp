@@ -106,16 +106,16 @@ ActionEnum Action( char* s )
 	SWITCH( s )	
 		CASE( "fire" )				a = ACTION_SHIFT_FIRE;		 
 		CASE( "first-aid" )  	a = ACTION_SHIFT_FIRST_AID;	
-		CASE( "firstaid" )  		a = ACTION_SHIFT_FIRST_AID;		
-		CASE( "security" )  		a = ACTION_SHIFT_SECURITY;		
+		CASE( "firstaid" )  	a = ACTION_SHIFT_FIRST_AID;		
+		CASE( "security" )  	a = ACTION_SHIFT_SECURITY;		
 		CASE( "general" )  		a = ACTION_SHIFT_GENERAL;		
-		CASE( "evacuate" )  		a = ACTION_SHIFT_EVACUATION;			
+		CASE( "evacuate" )  	a = ACTION_SHIFT_EVACUATION;			
 		CASE( "fault" )   		a = ACTION_SHIFT_FAULT;
 		CASE( "reset" ) 			a = ACTION_SHIFT_RESET;
 		CASE( "silence" ) 		a = ACTION_SHIFT_SILENCE;
-		CASE( "routing-ack" ) 	a = ACTION_SHIFT_ROUTING_ACK;
+		CASE( "routing-ack" ) a = ACTION_SHIFT_ROUTING_ACK;
 		CASE( "routingack" ) 	a = ACTION_SHIFT_ROUTING_ACK;
-		CASE( "undefined" ) 		a = ACTION_SHIFT_UNDEFINED;
+		CASE( "undefined" ) 	a = ACTION_SHIFT_UNDEFINED;
 		CASE( "confirm" ) 		a = ACTION_SHIFT_CONFIRM_FIRE;
 		CASE( "output" )			a = ACTION_SHIFT_CAE_OUTPUT;
 	
@@ -293,6 +293,8 @@ int SiteHandler::Attribute( char* attr, char* value )
 			STRCHK( xmli->site->uid, value, SITE_MAX_STRING_LEN );
 		}
 		CASE( "version" )		xmli->site->version = atoi( value );
+		CASE( "productrange" ) xmli->site->productrange = atoi( value ); 
+
 		CASE( "batterylow" ) xmli->site->batt_low[ 0] = atoi( value );
 		CASE( "batterymed" ) xmli->site->batt_med[ 0] = atoi( value );
 		CASE( "batteryhigh" ) xmli->site->batt_high[ 0] = atoi( value );
@@ -301,6 +303,7 @@ int SiteHandler::Attribute( char* attr, char* value )
 		CASE( "batteryhighsn" ) xmli->site->batt_high[ 1] = atoi( value ); 
 		CASE( "panelbatterylow" ) xmli->site->batt_panel = atoi( value ); 
 		
+
 	return XML_OK;
 }
 
@@ -496,7 +499,12 @@ int PanelHandler::Attribute( char* attr, char* value )
 				}
 			}
 			else return XML_BAD_VALUE;
-		}	 
+		}
+		
+		CASE( "productrange" ) 
+		{
+			xmli->panel->productrange = atoi( value );
+		}
 			 
 	return XML_OK;
 }

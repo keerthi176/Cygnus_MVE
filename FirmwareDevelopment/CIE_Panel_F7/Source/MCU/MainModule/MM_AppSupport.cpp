@@ -218,7 +218,7 @@ AppSupport::AppSupport( ) : Module( "AppSupport", 100, EVENT_RESET ), http( DEST
 			return;
 		}
 	}
-	memset(url,0,60);
+	//memset(url,0,60);
 	url[59] = 0;
 	
 	http.dest_domain = url;

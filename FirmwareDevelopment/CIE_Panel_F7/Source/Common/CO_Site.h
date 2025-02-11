@@ -562,7 +562,8 @@ typedef struct
    uint16_t  		numCaeRules;
 	uint16_t			numCaeInputs;
 	uint16_t			numCaeOutputs;
-		
+	uint16_t   		productrange;
+	
    DeviceConfig 	devs[ SITE_MAX_DEVICES ];
 	DeviceConfig 	units[ SITE_MAX_DEVICES ];
 	CAEInput			caeInputs[ SITE_MAX_CAE_INPUTS ];		
@@ -585,8 +586,10 @@ typedef struct
 typedef struct
 {
    char      		name[ SITE_MAX_STRING_LEN ];
-	char				uid[ SITE_MAX_STRING_LEN ];
+	char					uid[ SITE_MAX_STRING_LEN ];
 	unsigned int	version;	
+
+	unsigned int	productrange;
 
    uint8_t   		flags;
 	uint8_t			numContacts;
@@ -604,7 +607,7 @@ typedef struct
 
    Panel     		panels[ SITE_MAX_PANELS ];
 	
-
+	
 } Site;
 
 const char* GetActionString( int action );
