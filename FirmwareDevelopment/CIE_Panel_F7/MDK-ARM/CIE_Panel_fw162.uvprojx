@@ -1379,11 +1379,6 @@
               <FilePath>..\Source\MCU\MainModule\MM_DebugPort.cpp</FilePath>
             </File>
             <File>
-              <FileName>MM_Device.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Source\MCU\MainModule\MM_Device.cpp</FilePath>
-            </File>
-            <File>
               <FileName>MM_DFU.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\Source\MCU\MainModule\MM_DFU.cpp</FilePath>
@@ -1504,6 +1499,11 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
+            </File>
+            <File>
+              <FileName>MM_Device.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Source\MCU\MainModule\MM_Device.cpp</FilePath>
             </File>
             <File>
               <FileName>MM_Evacuate.cpp</FileName>
